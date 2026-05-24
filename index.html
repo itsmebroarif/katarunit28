@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karang Taruna Bojong Lio</title>
+    <title>Karang Taruna Bojong Lio - Headspace</title>
     <link rel="icon" type="image/x-icon" href="logo-karang-taruna.png">
-
+    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Website resmi Karang Taruna Unit 28 Kampung Bojong Lio. Kumpulan pemuda yang merajut realita dan mimpi demi memajukan kampung dengan berbagai aksi sosial.">
     <meta name="keywords" content="Karang Taruna, Unit 28, Bojong Lio, Kepemudaan, Organisasi Pemuda, Kegiatan Sosial, Kerja Bakti, Kampung Bojong Lio, Katar Unit 28">
@@ -18,385 +18,273 @@
     <meta property="og:image" content="logo-karang-taruna.png">
     <meta property="og:type" content="website">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <!-- Google Fonts: Gaegu (Dialogue) and VT323/Press Start 2P (UI) -->
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS CSS for Scroll Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
-            /* Clean Base Palette */
-            --ws-bg: #f8f9fa;
-            --ws-text: #212529;
-            --ws-border: #212529;
-            
-            /* Enhanced Headspace Pastel Palette */
-            --hs-purple: #cbaacb; 
-            --hs-pink: #ffb7b2;   
-            --hs-blue: #a3c4f3;   
-            --hs-mint: #b5ead7;   
-            --hs-teal: #90dbf4;   
-            --hs-yellow: #fdfd96;
-            --hs-orange: #ffdac1;
-            --hs-red: #ff9aa2;
-            
-            /* UI Elements */
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            /* Omori Headspace Pastel Palette */
+            --hs-bg: #bfe0f8; /* Light blue / kebiruan */
+            --hs-border: #4a3b69; /* Dark purple border */
+            --hs-pink: #f9d9ee;
+            --hs-mint: #d4f2e0;
+            --hs-blue: #d6eaf8;
+            --hs-yellow: #fcf3cf;
+            --hs-white: #ffffff;
+            --hs-red: #fadbd8;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Gaegu', cursive;
-            background-color: var(--ws-bg);
-            color: var(--ws-text);
+            font-weight: 700; /* Bold */
+            background-color: var(--hs-bg);
+            /* Polka dot background */
+            
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--hs-border);
+            font-size: 1.5rem;
             overflow-x: hidden;
-            font-size: 1.2rem;
+            cursor: crosshair; /* Quirky cursor */
         }
 
-        h1, h2, h3, .nav-link, .hero-subtitle {
-            font-family: 'IBM Plex Mono', monospace;
+        /* Force bold everywhere for readability */
+        h1, h2, h3, h4, .nav-links a, .action-btn, .lang-btn, .badge, .member-count, .modal-header, .role, .audio-widget span, p, span, div, input, textarea {
+            font-weight: 700 !important; 
+        }
+
+        h1, h2, h3, h4, .nav-links a, .nav-bottom a, .action-btn, .lang-btn, .badge, .member-count, .modal-header, .role, .audio-widget span {
+            font-family: 'VT323', monospace;
             text-transform: uppercase;
         }
 
         /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: var(--ws-bg); }
-        ::-webkit-scrollbar-thumb { background: var(--ws-text); border-radius: 6px; border: 3px solid var(--ws-bg); }
+        ::-webkit-scrollbar-track { background: var(--hs-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--hs-border); border: 2px solid var(--hs-bg); }
+
+        /* --- Global Box Style (Hand-drawn look) --- */
+        .omori-box {
+            background: var(--hs-white);
+            border: 4px solid var(--hs-border);
+            border-radius: 20px 10px 25px 10px / 10px 20px 10px 25px;
+            box-shadow: 6px 6px 0px rgba(74, 59, 105, 0.3);
+            padding: 30px;
+            transition: 0.2s;
+        }
 
         /* --- Navigation --- */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--ws-border);
+            top: 15px; left: 5%; right: 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 20px;
             z-index: 1000;
-            box-shadow: 0 4px 6px var(--shadow-color);
         }
-
-        .logo { font-size: 1.6rem; font-weight: bold; display: flex; align-items: center; gap: 10px;}
-        .logo img { width: 40px; height: 40px; }
+        .logo { font-size: 2rem; font-family: 'VT323', monospace; display: flex; align-items: center; gap: 10px; font-weight: bold;}
+        .logo img { width: 45px; height: 45px; border: 3px solid var(--hs-border); border-radius: 50%; background: var(--hs-white);}
         
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-links { display: flex; gap: 20px; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links { display: flex; gap: 15px; }
         .nav-links a { 
+            color: var(--hs-border); 
             text-decoration: none; 
-            color: var(--ws-text); 
-            font-weight: bold; 
-            font-size: 1rem;
-            transition: 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--hs-purple);
-            transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
-
-        /* Language Switcher */
-        .lang-switch {
-            display: flex;
-            gap: 5px;
-            background: white;
-            border: 2px solid var(--ws-border);
-            border-radius: 20px;
+            font-size: 1.8rem;
             padding: 5px 10px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        .lang-btn {
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 2px 5px;
             border-radius: 10px;
-            transition: 0.3s;
-            font-weight: bold;
+            transition: 0.1s;
         }
-        .lang-btn.active {
-            background: var(--ws-text);
-            color: white;
+        .nav-links a:hover { background: var(--hs-yellow); transform: scale(1.1) rotate(-2deg); box-shadow: 2px 2px 0px var(--hs-border);}
+
+        .lang-switch { display: flex; gap: 5px; }
+        .lang-btn {
+            background: var(--hs-white); border: 3px solid var(--hs-border);
+            border-radius: 8px 12px 8px 12px / 12px 8px 12px 8px;
+            padding: 2px 10px; font-size: 1.5rem; cursor: pointer; color: var(--hs-border);
         }
-        .lang-btn:hover:not(.active) {
-            background: #eee;
+        .lang-btn.active { background: var(--hs-border); color: var(--hs-white); }
+        .lang-btn:hover:not(.active) { background: var(--hs-pink); }
+        
+        .nav-bottom { display: none; }
+
+        /* --- Buttons --- */
+        .action-btn {
+            background: var(--hs-mint); border: 4px solid var(--hs-border);
+            border-radius: 15px 5px 20px 5px / 5px 15px 5px 20px;
+            font-size: 2rem; color: var(--hs-border);
+            padding: 10px 30px; cursor: pointer;
+            box-shadow: 4px 4px 0px var(--hs-border);
+            transition: 0.1s;
+        }
+        .action-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--hs-border);
+            background: var(--hs-yellow);
         }
 
-        /* --- Sections General --- */
-        section { padding: 100px 10% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative;}
+        /* --- Sections --- */
+        section { padding: 120px 10% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative;}
+        .section-title { font-size: 4rem; margin-bottom: 20px; text-shadow: 3px 3px 0px var(--hs-white); }
 
         /* --- Home --- */
-        #home { 
-            text-align: center; 
-            background: linear-gradient(135deg, var(--hs-mint) 0%, var(--hs-blue) 100%); 
-            overflow: hidden;
-        }
-        .home-content {
-            background: var(--glass-bg);
-            padding: 60px 40px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            border: 2px solid var(--glass-border);
-            backdrop-filter: blur(5px);
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero-title { font-size: 4.5rem; margin-bottom: 10px; font-weight: 800; letter-spacing: -2px; color: var(--ws-text);}
-        .hero-subtitle { font-size: 1.2rem; color: #444; margin-bottom: 30px; line-height: 1.5; text-transform: none; font-family: 'Gaegu', cursive;}
-        
-        .action-btn {
-            padding: 15px 35px;
-            background: var(--ws-text);
-            color: white;
-            border: 2px solid var(--ws-text);
-            border-radius: 50px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .action-btn:hover { 
-            background: white; 
-            color: var(--ws-text);
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
+        #home { text-align: center; }
+        .home-content { max-width: 800px; margin: 0 auto; background: var(--hs-mint); }
+        .hero-title { font-family: 'Press Start 2P', cursive; font-size: 3rem; text-shadow: 4px 4px 0px var(--hs-white); margin-bottom: 20px; line-height: 1.3;}
+        .hero-subtitle { font-size: 1.8rem; font-weight: bold; margin: 20px 0; }
+        .welcome-text { font-family: 'VT323', monospace; font-size: 2.5rem; color: var(--hs-border); letter-spacing: 5px;}
 
         /* --- About --- */
-        #about { background: white; }
-        .about-container { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .about-container { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         .about-text { flex: 1; min-width: 300px; }
         .about-img { 
-            width: 320px; 
-            height: 320px; 
-            border-radius: 30px;
-            background: var(--hs-pink); 
-            display: flex; justify-content: center; align-items: center; 
-            box-shadow: 20px 20px 0px var(--hs-yellow); 
-            transition: 0.4s;
-            border: 3px solid var(--ws-text);
+            width: 320px; height: 320px; background: var(--hs-pink); 
+            display: flex; justify-content: center; align-items: center;
+            transform: rotate(-3deg);
         }
-        .about-img:hover {
-            transform: rotate(-5deg) scale(1.02);
-            box-shadow: 25px 25px 0px var(--hs-purple);
-        }
-        .about-img img { width: 80%; }
-        .section-title { font-size: 2.8rem; margin-bottom: 20px; position: relative; display: inline-block; }
-        .section-title::after {
-            content: ''; position: absolute; width: 50%; height: 6px; bottom: -5px; left: 0; background: var(--hs-mint); border-radius: 3px;
-        }
+        .about-img img { width: 80%; border: 4px dashed var(--hs-border); border-radius: 50%; padding: 15px; background: white;}
 
-        /* --- Gallery (Headspace) --- */
-        #gallery { background: #fafafa; }
-        .grid-gallery { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px; 
-            margin-top: 50px; 
-        }
+        /* --- Gallery --- */
+        .grid-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; }
         .gallery-item { 
-            height: 220px; 
-            border-radius: 25px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 10px 20px var(--shadow-color);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
+            text-align: center; font-size: 1.8rem; font-weight: bold; cursor: pointer;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; height: 220px;
         }
-        .gallery-item::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.2); opacity: 0; transition: 0.3s;
-        }
-        .gallery-item:hover { 
-            transform: translateY(-10px) scale(1.03); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
-            border-color: white;
-        }
-        .gallery-item:hover::before { opacity: 1; }
-        
-        .gallery-item i { font-size: 3.5rem; margin-bottom: 15px; color: rgba(0,0,0,0.7); }
-        
+        .gallery-item:hover { transform: scale(1.05) rotate(3deg); background: var(--hs-white) !important; }
+        .gallery-item i { font-size: 4.5rem; margin-bottom: 15px; color: var(--hs-border); }
         .gallery-item:nth-child(1) { background: var(--hs-pink); }
         .gallery-item:nth-child(2) { background: var(--hs-blue); }
         .gallery-item:nth-child(3) { background: var(--hs-mint); }
         .gallery-item:nth-child(4) { background: var(--hs-yellow); }
-        .gallery-item:nth-child(5) { background: var(--hs-purple); }
-        .gallery-item:nth-child(6) { background: var(--hs-orange); }
+        .gallery-item:nth-child(5) { background: var(--hs-red); }
+        .gallery-item:nth-child(6) { background: var(--hs-white); border: 4px dashed var(--hs-border); }
 
-        /* --- Projects --- */
-        #project { background: var(--ws-text); color: white; }
-        #project .section-title { color: white; }
-        #project .section-title::after { background: var(--hs-red); }
-        .project-list { display: flex; flex-direction: column; gap: 30px; margin-top: 50px; }
-        .project-card { 
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 20px; padding: 40px; 
-            display: flex; justify-content: space-between; align-items: center;
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .project-card:hover { 
-            transform: translateX(10px); 
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.3);
-            box-shadow: -10px 10px 0px var(--hs-blue); 
-        }
-        .project-card:nth-child(even):hover { box-shadow: -10px 10px 0px var(--hs-pink); }
-        .project-card h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--hs-mint); }
-        .project-card p { font-size: 1.2rem; color: #ddd; }
-        .project-icon { font-size: 3.5rem; color: var(--hs-yellow); }
+        /* --- Projects & Software --- */
+        .project-list { display: flex; flex-direction: column; gap: 30px; margin-top: 40px; }
+        .project-card { display: flex; justify-content: space-between; align-items: center; background: var(--hs-yellow); cursor: pointer;}
+        .project-card:nth-child(even) { background: var(--hs-blue); }
+        .project-card:hover { transform: translateX(10px) rotate(-1deg); }
+        .project-card h3 { font-size: 2.5rem; }
+        .project-icon { font-size: 4.5rem; color: var(--hs-white); text-shadow: 2px 2px 0px var(--hs-border);}
 
-        /* --- Software --- */
-        #software { background: #fafafa; }
-        .software-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .software-card { 
-            background: white; border-radius: 20px; padding: 30px; text-align: center; 
-            border: 2px solid var(--ws-border); box-shadow: 0 8px 0px var(--ws-border);
-            transition: 0.3s; position: relative; overflow: hidden;
-        }
-        .software-card:hover { transform: translateY(-5px); box-shadow: 0 13px 0px var(--hs-purple); border-color: var(--hs-purple); }
-        .software-card i { font-size: 3.5rem; margin-bottom: 20px; color: var(--hs-blue); }
-        .software-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: bold; }
-        .software-card p { font-size: 1.1rem; color: #555; }
-        .software-card .badge { position: absolute; top: 15px; right: -35px; background: var(--hs-pink); color: var(--ws-text); padding: 5px 35px; transform: rotate(45deg); font-weight: bold; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; border: 2px solid var(--ws-border); box-shadow: 0 2px 0px var(--ws-border); }
+        .software-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .software-card { text-align: center; cursor: pointer; position: relative; overflow: hidden; background: var(--hs-mint); }
+        .software-card:hover { transform: translateY(-8px); background: var(--hs-yellow); }
+        .software-card i { font-size: 4.5rem; margin-bottom: 15px; color: var(--hs-border); }
+        .software-card h3 { font-size: 2.2rem; }
+        .software-card .badge { position: absolute; top: 15px; right: -30px; background: var(--hs-pink); border: 3px solid var(--hs-border); padding: 5px 35px; transform: rotate(45deg); font-size: 1.2rem; }
+        .download-hint { font-family: 'VT323', monospace; font-size: 1.3rem; margin-top: 15px; background: var(--hs-white); border: 3px solid var(--hs-border); padding: 5px; border-radius: 5px; display: inline-block;}
 
-        /* --- Team / Divisions --- */
-        #team { background: #f0f2f5; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .team-member { 
-            background: white; border-radius: 20px; padding: 30px 20px; text-align: center; 
-            transition: 0.4s; box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            cursor: pointer; position: relative; border: 2px solid transparent;
-        }
-        .team-member:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-            border-color: var(--hs-purple);
-        }
+        /* --- Team --- */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 40px; }
+        .team-member { text-align: center; cursor: pointer; position: relative; }
+        .team-member:hover { transform: translateY(-5px) scale(1.02); background: var(--hs-pink); }
         .avatar { 
-            width: 90px; height: 90px; margin: 0 auto 20px; border-radius: 50%; 
-            background: linear-gradient(135deg, var(--hs-teal), var(--hs-blue)); 
-            display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: 0.3s;
+            width: 90px; height: 90px; margin: 0 auto 15px; border: 4px solid var(--hs-border); 
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; background: var(--hs-white);
+            display: flex; align-items: center; justify-content: center; font-size: 3rem;
+            color: var(--hs-border);
         }
-        .team-member:hover .avatar { transform: scale(1.1) rotate(10deg); }
-        .team-member h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .team-member p { color: #666; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; }
-        .team-hover-hint {
-            position: absolute; bottom: 15px; left: 0; width: 100%; font-size: 0.8rem; color: var(--hs-purple); opacity: 0; transition: 0.3s;
-            font-family: 'IBM Plex Mono', monospace; font-weight: bold; text-transform: uppercase;
-        }
-        .team-member:hover .team-hover-hint { opacity: 1; bottom: 20px; }
+        .team-member h3 { font-size: 2rem; }
+        .team-hover-hint { font-family: 'VT323', monospace; font-size: 1.4rem; background: var(--hs-yellow); border: 2px solid var(--hs-border); padding: 2px 10px; border-radius: 10px; opacity: 0; transition: 0.2s; margin-top: 10px; display: inline-block;}
+        .team-member:hover .team-hover-hint { opacity: 1; }
 
         /* --- Contact --- */
-        #contact { background: linear-gradient(135deg, var(--ws-bg) 0%, var(--hs-pink) 100%); }
-        .contact-box { 
-            background: var(--glass-bg); backdrop-filter: blur(10px);
-            border-radius: 30px; padding: 50px; width: 100%; max-width: 900px; margin: 0 auto; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 2px solid var(--glass-border);
-        }
-        .form-group { margin-bottom: 25px; text-align: left; }
-        .form-group label { display: block; font-size: 1.1rem; margin-bottom: 10px; font-weight: bold; font-family: 'IBM Plex Mono', monospace; }
+        .contact-box { max-width: 800px; margin: 0 auto; background: var(--hs-pink); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-family: 'VT323', monospace; font-size: 2rem; margin-bottom: 10px; }
         .form-group input, .form-group textarea { 
-            width: 100%; padding: 15px 20px; border-radius: 15px; border: 2px solid #ddd; 
-            font-family: 'Gaegu', cursive; font-size: 1.2rem; outline: none; transition: 0.3s; background: white;
+            width: 100%; padding: 15px; border: 4px solid var(--hs-border);
+            border-radius: 10px 5px 15px 5px / 5px 10px 5px 15px;
+            font-family: 'Gaegu', cursive; font-size: 1.5rem; outline: none;
         }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--hs-purple); box-shadow: 0 0 0 4px rgba(203, 170, 203, 0.2); }
-        
-        footer { padding: 30px; background: var(--ws-text); color: white; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { background: var(--hs-yellow); }
 
-        /* --- Modal --- */
+        footer { text-align: center; padding: 40px 40px 100px; font-family: 'VT323', monospace; font-size: 1.8rem; background: var(--hs-border); color: var(--hs-white); border-top: 4px dashed var(--hs-bg);}
+
+        /* --- Modals --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s;
+            background: rgba(74, 59, 105, 0.7); display: flex; justify-content: center; align-items: center;
+            z-index: 2000; opacity: 0; visibility: hidden; transition: 0.2s;
         }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content {
-            background: white; border-radius: 25px; padding: 40px; width: 90%; max-width: 550px;
-            transform: translateY(30px) scale(0.95); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2); position: relative;
-            border: 4px solid var(--ws-text);
-        }
-        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        .modal-content { max-width: 500px; width: 90%; transform: scale(0.8); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: var(--hs-mint); position: relative;}
+        .modal-overlay.active .modal-content { transform: scale(1); }
         .modal-close {
-            position: absolute; top: 20px; right: 20px; background: #f0f0f0; border: none;
-            width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer;
-            transition: 0.2s; display: flex; align-items: center; justify-content: center;
-            font-weight: bold;
+            position: absolute; top: -20px; right: -20px; background: var(--hs-red); border: 4px solid var(--hs-border);
+            width: 50px; height: 50px; border-radius: 50%; font-family: 'Gaegu', cursive; font-size: 2rem; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; color: var(--hs-border);
+            transition: 0.2s;
         }
-        .modal-close:hover { background: var(--hs-red); color: white; transform: rotate(90deg); }
-        .modal-header { font-family: 'IBM Plex Mono', monospace; font-size: 1.8rem; font-weight: bold; margin-bottom: 20px; color: var(--ws-text); border-bottom: 3px dashed #ddd; padding-bottom: 10px; }
-        .modal-list { list-style: none; max-height: 60vh; overflow-y: auto; padding-right: 10px; }
+        .modal-close:hover { transform: scale(1.1) rotate(90deg); background: var(--hs-white); }
+        .modal-header { font-size: 2.5rem; border-bottom: 4px dashed var(--hs-border); padding-bottom: 10px; margin-bottom: 20px; text-align: center;}
+        .modal-list { list-style: none; max-height: 50vh; overflow-y: auto; padding-right: 10px;}
         .modal-list::-webkit-scrollbar { width: 8px; }
-        .modal-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        .modal-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-        .modal-list li { margin-bottom: 15px; display: flex; flex-direction: column; background: #fafafa; padding: 15px; border-radius: 15px; border-left: 5px solid var(--hs-purple); }
-        .modal-list li .name { font-weight: bold; font-size: 1.3rem; color: var(--ws-text); }
-        .modal-list li .role { font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; color: #666; display: flex; align-items: center; gap: 5px; margin-top: 5px;}
-        .modal-list li .role i { color: var(--hs-purple); font-size: 0.8rem; }
+        .modal-list::-webkit-scrollbar-track { background: var(--hs-bg); border-radius: 4px; }
+        .modal-list::-webkit-scrollbar-thumb { background: var(--hs-border); border-radius: 4px; }
+        .modal-list li { background: var(--hs-white); border: 3px solid var(--hs-border); border-radius: 10px; padding: 15px; margin-bottom: 15px; }
+        .modal-list li .name { font-weight: bold; font-size: 1.6rem; display: block; }
+        .modal-list li .role { font-size: 1.3rem; color: #555; margin-top: 5px; display: flex; align-items: center; gap: 5px;}
 
-        /* Responsive adjustments */
+        /* --- Audio Controls Widget --- */
+        .audio-widget {
+            position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+            background: var(--hs-white); border: 4px solid var(--hs-border);
+            border-radius: 15px 5px 20px 5px / 5px 15px 5px 20px; padding: 10px 20px;
+            display: flex; align-items: center; gap: 15px;
+            box-shadow: 4px 4px 0px rgba(74, 59, 105, 0.4);
+            transition: 0.2s;
+        }
+        .audio-widget:hover { transform: translateY(-3px); box-shadow: 6px 6px 0px rgba(74, 59, 105, 0.4); }
+        .audio-widget button { background: none; border: none; font-size: 2.5rem; cursor: pointer; color: var(--hs-border); transition: 0.2s;}
+        .audio-widget button:hover { color: #f28bca; transform: scale(1.1); }
+        .vol-container { display: flex; flex-direction: column; align-items: center; }
+        .vol-slider { width: 90px; accent-color: var(--hs-border); cursor: pointer; }
+        .vol-label { font-family: 'VT323', monospace; font-size: 1.2rem; font-weight: bold; margin-bottom: -5px; }
+
         @media (max-width: 900px) {
+            .hero-title { font-size: 2.2rem; }
             .grid-gallery { grid-template-columns: repeat(2, 1fr); }
-            .hero-title { font-size: 3.5rem; }
-        }
-        @media (max-width: 768px) {
             .nav-links { display: none; }
-            section { padding: 100px 5% 60px; }
-            .about-container { flex-direction: column; text-align: center; }
-            .section-title::after { left: 25%; }
-            .project-card { flex-direction: column; text-align: center; gap: 20px; }
-            .contact-box { padding: 30px; }
+            
+            nav { padding: 5px 10px; }
+            .logo span { font-size: 1.5rem; }
+            
+            .nav-bottom {
+                display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+                background: var(--hs-white); border-top: 4px solid var(--hs-border);
+                z-index: 1000; padding: 10px 5px; justify-content: space-around;
+                border-radius: 20px 20px 0 0; box-shadow: 0px -4px 0px rgba(74, 59, 105, 0.3);
+                overflow-x: auto; white-space: nowrap; gap: 10px;
+            }
+            .nav-bottom a {
+                color: var(--hs-border); text-decoration: none; font-size: 1.2rem;
+                display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 5px 10px;
+                font-family: 'VT323', monospace;
+            }
+            .nav-bottom a:hover { background: var(--hs-yellow); border-radius: 10px; }
+            .nav-bottom a i { font-size: 1.5rem; }
+            .audio-widget { bottom: 90px; right: 10px; padding: 5px 10px; gap: 10px; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
+            section { padding: 100px 5% 60px; }
+            .hero-title { font-size: 1.8rem; }
             .grid-gallery { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.8rem; }
+            .project-card { flex-direction: column; text-align: center; gap: 20px;}
+            .vol-slider { width: 60px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Hidden YouTube Player -->
+    <div id="ytplayer" style="display: none;"></div>
+
     <!-- Navigation -->
-    <nav>
+    <nav class="omori-box">
         <div class="logo">
             <img src="logo-karang-taruna.png" alt="Logo">
             <span data-i18n="nav_title">Katar Unit 28</span>
@@ -418,11 +306,22 @@
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="nav-bottom">
+        <a href="#home"><i class="fas fa-home"></i><span data-i18n="nav_home">Home</span></a>
+        <a href="#about"><i class="fas fa-info-circle"></i><span data-i18n="nav_about">About</span></a>
+        <a href="#gallery"><i class="fas fa-images"></i><span data-i18n="nav_gallery">Gallery</span></a>
+        <a href="#project"><i class="fas fa-flag"></i><span data-i18n="nav_project">Project</span></a>
+        <a href="#software"><i class="fas fa-laptop-code"></i><span data-i18n="nav_software">Software</span></a>
+        <a href="#team"><i class="fas fa-users"></i><span data-i18n="nav_divisi">Divisi</span></a>
+        <a href="#contact"><i class="fas fa-envelope"></i><span data-i18n="nav_contact">Contact</span></a>
+    </div>
 
     <!-- Home Section -->
     <section id="home">
-        <div class="home-content" data-aos="zoom-in">
-            <p style="letter-spacing: 5px; font-weight: bold; color: var(--hs-purple); font-family: 'IBM Plex Mono', monospace; margin-bottom: 15px;" data-i18n="hero_welcome">WELCOME TO</p>
+        <div class="home-content omori-box" data-aos="zoom-in">
+            <p class="welcome-text" data-i18n="hero_welcome">WELCOME TO</p>
             <h1 class="hero-title" data-i18n="hero_title">KATAR UNIT 28</h1>
             <p class="hero-subtitle" data-i18n="hero_subtitle">"Menunggu sesuatu terjadi? Mari berkarya bersama Karang Taruna."</p>
             <button class="action-btn" onclick="location.href='#about'" data-i18n="hero_btn">Pelajari Lebih Lanjut</button>
@@ -432,12 +331,12 @@
     <!-- About Section -->
     <section id="about">
         <div class="about-container">
-            <div class="about-img" data-aos="fade-right">
+            <div class="about-img omori-box" data-aos="fade-right">
                 <img src="logo-karang-taruna.png" alt="Logo Katar">
             </div>
             <div class="about-text" data-aos="fade-left">
                 <h2 class="section-title" data-i18n="about_title">SIAPA KAMI?</h2>
-                <p style="margin-top: 20px; line-height: 1.6; font-size: 1.4rem;" data-i18n="about_desc">
+                <p style="margin-top: 20px; line-height: 1.6;" data-i18n="about_desc">
                     Kami adalah Karang Taruna Unit 28 Kampung Bojong Lio, sekumpulan pemuda yang merajut realita dan mimpi demi memajukan kampung kami. Seperti buku harian yang penuh coretan, setiap aksi sosial yang kami lakukan adalah cerita yang kami tulis untuk masa depan.
                 </p>
             </div>
@@ -448,31 +347,31 @@
     <section id="gallery">
         <div style="text-align: center;" data-aos="fade-up">
             <h2 class="section-title" data-i18n="gallery_title">HEADSPACE MEMORIES</h2>
-            <p style="margin-top: 10px; color: #666; font-size: 1.3rem;" data-i18n="gallery_desc">Kumpulan kegiatan umum di lingkungan kita.</p>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="gallery_desc">Kumpulan kegiatan umum di lingkungan kita.</p>
         </div>
         
         <div class="grid-gallery">
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="0">
                 <i class="fas fa-broom"></i>
                 <p data-i18n="memory_1">Kerja Bakti</p>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="100">
                 <i class="fas fa-comments"></i>
                 <p data-i18n="memory_2">Diskusi Bersama</p>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="200">
                 <i class="fas fa-mosque"></i>
                 <p data-i18n="memory_3">Kegiatan Keagamaan</p>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="300">
                 <i class="fas fa-drum"></i>
                 <p data-i18n="memory_4">Kegiatan Festival</p>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="400">
                 <i class="fas fa-volleyball-ball"></i>
                 <p data-i18n="memory_5">Kegiatan Olahraga</p>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+            <div class="gallery-item omori-box" data-aos="zoom-in" data-aos-delay="500">
                 <i class="fas fa-tree"></i>
                 <p data-i18n="memory_6">Piknik</p>
             </div>
@@ -485,17 +384,17 @@
             <h2 class="section-title" data-i18n="project_title">CURRENT QUESTS</h2>
         </div>
         <div class="project-list">
-            <div class="project-card" data-aos="fade-right">
+            <div class="project-card omori-box" data-aos="fade-right">
                 <div>
                     <h3 data-i18n="quest_1_title">PERSIAPAN TUJUH BELASAN</h3>
-                    <p data-i18n="quest_1_desc">Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.</p>
+                    <p data-i18n="quest_1_desc" style="margin-top: 10px; font-weight: bold;">Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.</p>
                 </div>
                 <div class="project-icon"><i class="fas fa-flag"></i></div>
             </div>
-            <div class="project-card" data-aos="fade-left" data-aos-delay="100">
+            <div class="project-card omori-box" data-aos="fade-left" data-aos-delay="100">
                 <div>
                     <h3 data-i18n="quest_2_title">KERJA BAKTI BERSAMA</h3>
-                    <p data-i18n="quest_2_desc">Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.</p>
+                    <p data-i18n="quest_2_desc" style="margin-top: 10px; font-weight: bold;">Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.</p>
                 </div>
                 <div class="project-icon"><i class="fas fa-hands-helping"></i></div>
             </div>
@@ -506,28 +405,28 @@
     <section id="software">
         <div style="text-align: center;" data-aos="fade-up">
             <h2 class="section-title" data-i18n="software_title">OUR SOFTWARE</h2>
-            <p style="margin-top: 10px; color: #666; font-size: 1.3rem;" data-i18n="software_desc">Aplikasi dan sistem digital karya kami yang akan terus bertambah.</p>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="software_desc">Aplikasi dan sistem digital karya kami yang akan terus bertambah.</p>
         </div>
         
         <div class="software-grid">
-            <div class="software-card" data-aos="zoom-in" data-aos-delay="0" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1l-GZUgeblPgw9W-A42UePQ6MFdD30lyA'" style="cursor: pointer;" title="Download Katarpostmaker">
+            <div class="software-card omori-box" data-aos="zoom-in" data-aos-delay="0" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1l-GZUgeblPgw9W-A42UePQ6MFdD30lyA'">
                 <div class="badge" data-i18n="soft_badge">ACTIVE</div>
                 <i class="fas fa-magic"></i>
                 <h3 data-i18n="soft_1_title">Katarpostmaker</h3>
-                <p data-i18n="soft_1_desc">Aplikasi generator post untuk kebutuhan sosial media Karang Taruna agar desain selalu rapi.</p>
-                <div style="margin-top: 15px; font-weight: bold; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--hs-purple);"><i class="fas fa-download"></i> Klik untuk Download</div>
+                <p data-i18n="soft_1_desc" style="margin-top: 10px;">Aplikasi generator post untuk kebutuhan sosial media Karang Taruna agar desain selalu rapi.</p>
+                <div class="download-hint"><i class="fas fa-download"></i> <span data-i18n="click_download">Klik untuk Download</span></div>
             </div>
-            <div class="software-card" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1kgKC9u_3AKuC1DsB1VTwWfJjc_OnidBx'" style="cursor: pointer;" title="Download Aplikasi17an">
+            <div class="software-card omori-box" data-aos="zoom-in" data-aos-delay="100" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1kgKC9u_3AKuC1DsB1VTwWfJjc_OnidBx'">
                 <div class="badge" data-i18n="soft_badge">ACTIVE</div>
                 <i class="fas fa-flag-checkered"></i>
                 <h3 data-i18n="soft_2_title">Aplikasi17an</h3>
-                <p data-i18n="soft_2_desc">Sistem manajemen lomba, peserta, dan skor khusus untuk acara tujuh belasan di kampung.</p>
-                <div style="margin-top: 15px; font-weight: bold; font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--hs-purple);"><i class="fas fa-download"></i> Klik untuk Download</div>
+                <p data-i18n="soft_2_desc" style="margin-top: 10px;">Sistem manajemen lomba, peserta, dan skor khusus untuk acara tujuh belasan di kampung.</p>
+                <div class="download-hint"><i class="fas fa-download"></i> <span data-i18n="click_download">Klik untuk Download</span></div>
             </div>
-            <div class="software-card" style="border: 2px dashed #ccc; box-shadow: none; background: transparent; display: flex; flex-direction: column; justify-content: center;" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-plus-circle" style="color: #ccc;"></i>
-                <h3 style="color: #999;" data-i18n="soft_3_title">Coming Soon</h3>
-                <p style="color: #999;" data-i18n="soft_3_desc">Lebih banyak software inovatif akan segera hadir...</p>
+            <div class="software-card omori-box" style="background: transparent; box-shadow: none; border-style: dashed;" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-plus-circle" style="color: #999;"></i>
+                <h3 style="color: #666;" data-i18n="soft_3_title">Coming Soon</h3>
+                <p style="color: #666; margin-top: 10px;" data-i18n="soft_3_desc">Lebih banyak software inovatif akan segera hadir...</p>
             </div>
         </div>
     </section>
@@ -536,50 +435,50 @@
     <section id="team">
         <div style="text-align: center;" data-aos="fade-up">
             <h2 class="section-title" data-i18n="team_title">THE DIVISIONS</h2>
-            <p style="margin-top: 10px; color: #666; font-size: 1.3rem;" data-i18n="team_desc">Pilih party member untuk menemanimu di desa. (Klik untuk melihat anggota)</p>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="team_desc">Pilih party member untuk menemanimu di desa. (Klik untuk melihat anggota)</p>
         </div>
         
         <div class="team-grid">
-            <div class="team-member" onclick="openModal('utama')" data-aos="fade-up" data-aos-delay="0">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-pink), var(--hs-purple));"><i class="fas fa-crown"></i></div>
+            <div class="team-member omori-box" onclick="openModal('utama')" data-aos="fade-up" data-aos-delay="0">
+                <div class="avatar"><i class="fas fa-crown"></i></div>
                 <h3 data-i18n="team_utama">ANGGOTA UTAMA</h3>
-                <p><span class="member-count">6</span> Members</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">6</span> Members</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('multimedia')" data-aos="fade-up" data-aos-delay="100">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-blue), var(--hs-teal));"><i class="fas fa-camera-retro"></i></div>
+            <div class="team-member omori-box" onclick="openModal('multimedia')" data-aos="fade-up" data-aos-delay="100">
+                <div class="avatar"><i class="fas fa-camera-retro"></i></div>
                 <h3 data-i18n="team_multimedia">MULTIMEDIA</h3>
-                <p><span class="member-count">3</span> Members</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">3</span> Members</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('keamanan')" data-aos="fade-up" data-aos-delay="200">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-mint), var(--hs-yellow)); color: #333;"><i class="fas fa-shield-alt"></i></div>
+            <div class="team-member omori-box" onclick="openModal('keamanan')" data-aos="fade-up" data-aos-delay="200">
+                <div class="avatar"><i class="fas fa-shield-alt"></i></div>
                 <h3 data-i18n="team_keamanan">KEAMANAN</h3>
-                <p><span class="member-count">2</span> Members</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">2</span> Members</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('humas')" data-aos="fade-up" data-aos-delay="300">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-orange), var(--hs-pink));"><i class="fas fa-bullhorn"></i></div>
+            <div class="team-member omori-box" onclick="openModal('humas')" data-aos="fade-up" data-aos-delay="300">
+                <div class="avatar"><i class="fas fa-bullhorn"></i></div>
                 <h3 data-i18n="team_humas">HUMAS & ASET</h3>
-                <p><span class="member-count">2</span> Members</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">2</span> Members</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('olahraga')" data-aos="fade-up" data-aos-delay="400">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-red), var(--hs-orange));"><i class="fas fa-running"></i></div>
+            <div class="team-member omori-box" onclick="openModal('olahraga')" data-aos="fade-up" data-aos-delay="400">
+                <div class="avatar"><i class="fas fa-running"></i></div>
                 <h3 data-i18n="team_olahraga">OLAHRAGA & KEROHANIAN</h3>
-                <p><span class="member-count">2</span> Members</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">2</span> Members</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('wirausaha')" data-aos="fade-up" data-aos-delay="500">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-purple), var(--hs-blue));"><i class="fas fa-store"></i></div>
+            <div class="team-member omori-box" onclick="openModal('wirausaha')" data-aos="fade-up" data-aos-delay="500">
+                <div class="avatar"><i class="fas fa-store"></i></div>
                 <h3 data-i18n="team_wirausaha">KEWIRAUSAHAAN & SENI BUDAYA</h3>
-                <p><span class="member-count">1</span> Member</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">1</span> Member</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
-            <div class="team-member" onclick="openModal('sistem')" data-aos="fade-up" data-aos-delay="600">
-                <div class="avatar" style="background: linear-gradient(135deg, var(--hs-teal), var(--hs-mint)); color: #333;"><i class="fas fa-laptop-code"></i></div>
+            <div class="team-member omori-box" onclick="openModal('sistem')" data-aos="fade-up" data-aos-delay="600">
+                <div class="avatar"><i class="fas fa-laptop-code"></i></div>
                 <h3 data-i18n="team_sistem">SISTEM INFORMASI DIGITAL</h3>
-                <p><span class="member-count">1</span> Member</p>
+                <p style="font-weight: bold; margin-top: 5px;"><span class="member-count">1</span> Member</p>
                 <div class="team-hover-hint" data-i18n="click_view">Klik untuk melihat</div>
             </div>
         </div>
@@ -587,8 +486,8 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="contact-box" data-aos="zoom-in">
-            <h2 class="section-title" style="display: block; text-align: center; margin-bottom: 30px;" data-i18n="contact_title">CONTACT US</h2>
+        <div class="contact-box omori-box" data-aos="zoom-in">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 30px;" data-i18n="contact_title">CONTACT US</h2>
             <div class="form-group">
                 <label data-i18n="contact_name_label">Nama Anda:</label>
                 <input type="text" id="name" data-i18n-placeholder="contact_name_placeholder" placeholder="Siapa namamu?">
@@ -597,7 +496,7 @@
                 <label data-i18n="contact_msg_label">Pesan:</label>
                 <textarea id="message" rows="5" data-i18n-placeholder="contact_msg_placeholder" placeholder="Apa yang ingin kamu sampaikan?"></textarea>
             </div>
-            <button class="action-btn" style="width: 100%; margin-top: 10px; padding: 20px; font-size: 1.3rem;" onclick="sendToWA()" data-i18n="contact_btn">SEND MESSAGE</button>
+            <button class="action-btn" style="width: 100%; margin-top: 10px;" onclick="sendToWA()" data-i18n="contact_btn">SEND MESSAGE</button>
         </div>
     </section>
 
@@ -607,8 +506,8 @@
 
     <!-- Modal Element -->
     <div class="modal-overlay" id="teamModal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModal(event)">&times;</button>
+        <div class="modal-content omori-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal(event)">X</button>
             <div class="modal-header" id="modalTitle">Divisi Name</div>
             <ul class="modal-list" id="modalList">
                 <!-- Data will be injected here via JavaScript -->
@@ -618,195 +517,226 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- YouTube Iframe API for BGM -->
     <script>
-        // Init AOS Animation Library
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('ytplayer', {
+                height: '0', width: '0',
+                videoId: '7GIWV__qx4M', // Omori 005 - By Your Side
+                playerVars: {
+                    'autoplay': 1,
+                    'loop': 1,
+                    'playlist': '7GIWV__qx4M', // Required for loop
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        let isPlaying = false; // Start false because browser autoplay policy blocks it
+        function onPlayerReady(event) {
+            event.target.setVolume(50);
+            // We rely on user click to start it
+        }
+
+        function togglePlay() {
+            if (!player || !player.getPlayerState) return;
+            const icon = document.getElementById('playPauseIcon');
+            if (isPlaying) {
+                player.pauseVideo();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            } else {
+                player.playVideo();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function changeVolume(val) {
+            if (player && player.setVolume) {
+                player.setVolume(val);
+            }
+        }
+    </script>
+
+    <!-- UI Logic, Translation & SFX -->
+    <script>
+        // Init AOS Animation
         AOS.init({ duration: 800, once: true });
 
-        // Translations Dictionary
+        // --- Web Audio API for SFX ---
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
+
+        function initAudio() {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Slide sound for Navbar (Rising Arpeggio feel)
+        function playSlideSound() {
+            initAudio();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
+            
+            gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        // Click sound for buttons (Short blip)
+        function playClickSound() {
+            initAudio();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+            
+            gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.08);
+        }
+
+        // --- Global Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Unblock audio and start BGM on very first click anywhere
+            document.body.addEventListener('click', () => {
+                initAudio();
+                if(player && player.getPlayerState && !isPlaying) {
+                    player.playVideo();
+                    isPlaying = true;
+                    document.getElementById('playPauseIcon').classList.remove('fa-play');
+                    document.getElementById('playPauseIcon').classList.add('fa-pause');
+                }
+            }, { once: true });
+
+            // Navbar Slide Sound (Including Mobile Bottom Nav)
+            document.querySelectorAll('.nav-links a, .nav-bottom a').forEach(el => {
+                el.addEventListener('mouseenter', playSlideSound);
+            });
+
+            // Click Sound for ALL interactable elements
+            document.querySelectorAll('a, button, .action-btn, .lang-btn, .software-card, .team-member, .gallery-item, .project-card, .modal-close, input, textarea').forEach(el => {
+                el.addEventListener('mousedown', (e) => {
+                    e.stopPropagation(); 
+                    playClickSound();
+                });
+            });
+        });
+
+        // --- Translations ---
         const translations = {
             id: {
-                nav_title: "Katar Unit 28",
-                nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisi", nav_contact: "Contact",
-                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", 
-                hero_subtitle: "\"Menunggu sesuatu terjadi? Mari berkarya bersama Karang Taruna.\"", hero_btn: "Pelajari Lebih Lanjut",
+                nav_title: "Katar Unit 28", nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisi", nav_contact: "Contact",
+                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Menunggu sesuatu terjadi? Mari berkarya bersama Karang Taruna.\"", hero_btn: "Pelajari Lebih Lanjut",
                 about_title: "SIAPA KAMI?", about_desc: "Kami adalah Karang Taruna Unit 28 Kampung Bojong Lio, sekumpulan pemuda yang merajut realita dan mimpi demi memajukan kampung kami. Seperti buku harian yang penuh coretan, setiap aksi sosial yang kami lakukan adalah cerita yang kami tulis untuk masa depan.",
-                gallery_title: "HEADSPACE MEMORIES", gallery_desc: "Kumpulan kegiatan umum di lingkungan kita.",
-                memory_1: "Kerja Bakti", memory_2: "Diskusi Bersama", memory_3: "Kegiatan Keagamaan", memory_4: "Kegiatan Festival", memory_5: "Kegiatan Olahraga", memory_6: "Piknik",
-                project_title: "CURRENT QUESTS", 
-                quest_1_title: "PERSIAPAN TUJUH BELASAN", quest_1_desc: "Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.",
-                quest_2_title: "KERJA BAKTI BERSAMA", quest_2_desc: "Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.",
-                software_title: "OUR SOFTWARE", software_desc: "Aplikasi dan sistem digital karya kami yang akan terus bertambah.",
-                soft_badge: "AKTIF", soft_1_title: "Katarpostmaker", soft_1_desc: "Aplikasi generator post untuk kebutuhan sosial media Karang Taruna agar desain selalu rapi.",
-                soft_2_title: "Aplikasi17an", soft_2_desc: "Sistem manajemen lomba, peserta, dan skor khusus untuk acara tujuh belasan di kampung.",
-                soft_3_title: "Segera Hadir", soft_3_desc: "Lebih banyak software inovatif akan segera hadir...",
-                team_title: "THE DIVISIONS", team_desc: "Pilih party member untuk menemanimu di desa. (Klik untuk melihat anggota)",
-                team_utama: "ANGGOTA UTAMA", team_multimedia: "MULTIMEDIA", team_keamanan: "KEAMANAN", team_humas: "HUMAS & ASET", team_olahraga: "OLAHRAGA & KEROHANIAN", team_wirausaha: "KEWIRAUSAHAAN & SENI BUDAYA", team_sistem: "SISTEM INFORMASI DIGITAL", click_view: "Klik untuk melihat",
+                gallery_title: "HEADSPACE MEMORIES", gallery_desc: "Kumpulan kegiatan umum di lingkungan kita.", memory_1: "Kerja Bakti", memory_2: "Diskusi Bersama", memory_3: "Kegiatan Keagamaan", memory_4: "Kegiatan Festival", memory_5: "Kegiatan Olahraga", memory_6: "Piknik",
+                project_title: "CURRENT QUESTS", quest_1_title: "PERSIAPAN TUJUH BELASAN", quest_1_desc: "Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.", quest_2_title: "KERJA BAKTI BERSAMA", quest_2_desc: "Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.",
+                software_title: "OUR SOFTWARE", software_desc: "Aplikasi dan sistem digital karya kami yang akan terus bertambah.", soft_badge: "AKTIF", soft_1_title: "Katarpostmaker", soft_1_desc: "Aplikasi generator post untuk kebutuhan sosial media Karang Taruna agar desain selalu rapi.", soft_2_title: "Aplikasi17an", soft_2_desc: "Sistem manajemen lomba, peserta, dan skor khusus untuk acara tujuh belasan di kampung.", soft_3_title: "Segera Hadir", soft_3_desc: "Lebih banyak software inovatif akan segera hadir...", click_download: "Klik untuk Download",
+                team_title: "THE DIVISIONS", team_desc: "Pilih party member untuk menemanimu di desa. (Klik untuk melihat anggota)", team_utama: "ANGGOTA UTAMA", team_multimedia: "MULTIMEDIA", team_keamanan: "KEAMANAN", team_humas: "HUMAS & ASET", team_olahraga: "OLAHRAGA & KEROHANIAN", team_wirausaha: "KEWIRAUSAHAAN & SENI BUDAYA", team_sistem: "SISTEM INFORMASI DIGITAL", click_view: "Klik untuk melihat",
                 contact_title: "CONTACT US", contact_name_label: "Nama Anda:", contact_name_placeholder: "Siapa namamu?", contact_msg_label: "Pesan:", contact_msg_placeholder: "Apa yang ingin kamu sampaikan?", contact_btn: "SEND MESSAGE",
                 footer_text: "© 2026 KARANG TARUNA UNIT 28 | EVERYTHING IS GOING TO BE OKAY.",
-                swal_empty_title: "STAIRS...", swal_empty_text: "Jangan biarkan kolom kosong seperti ingatan yang hilang.",
-                swal_send_title: "Kirim Pesan?", swal_send_text: "Kamu akan memasuki portal WhatsApp Admin Karang Taruna.", swal_btn_yes: "Ya, Kirim!", swal_btn_no: "Batal"
+                swal_empty_title: "STAIRS...", swal_empty_text: "Jangan biarkan kolom kosong seperti ingatan yang hilang.", swal_send_title: "Kirim Pesan?", swal_send_text: "Kamu akan memasuki portal WhatsApp Admin Karang Taruna.", swal_btn_yes: "Ya, Kirim!", swal_btn_no: "Batal"
             },
             en: {
-                nav_title: "Katar Unit 28",
-                nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisions", nav_contact: "Contact",
-                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", 
-                hero_subtitle: "\"Waiting for something to happen? Let's work together with Karang Taruna.\"", hero_btn: "Learn More",
+                nav_title: "Katar Unit 28", nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisions", nav_contact: "Contact",
+                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Waiting for something to happen? Let's work together with Karang Taruna.\"", hero_btn: "Learn More",
                 about_title: "WHO ARE WE?", about_desc: "We are Karang Taruna Unit 28 of Bojong Lio Village, a group of youths weaving reality and dreams to advance our village. Like a diary full of scribbles, every social action we take is a story we write for the future.",
-                gallery_title: "HEADSPACE MEMORIES", gallery_desc: "A collection of general activities in our neighborhood.",
-                memory_1: "Community Work", memory_2: "Group Discussion", memory_3: "Religious Activities", memory_4: "Festival Activities", memory_5: "Sports Activities", memory_6: "Picnic",
-                project_title: "CURRENT QUESTS", 
-                quest_1_title: "INDEPENDENCE DAY PREP", quest_1_desc: "Preparing various competitions and events to celebrate independence day.",
-                quest_2_title: "COMMUNITY CLEANUP", quest_2_desc: "Cleaning the village environment together for mutual comfort.",
-                software_title: "OUR SOFTWARE", software_desc: "Our digital applications and systems that will continue to grow.",
-                soft_badge: "ACTIVE", soft_1_title: "Katarpostmaker", soft_1_desc: "Post generator app for Karang Taruna social media needs to keep designs neat.",
-                soft_2_title: "Aplikasi17an", soft_2_desc: "Competition, participant, and score management system specifically for village independence events.",
-                soft_3_title: "Coming Soon", soft_3_desc: "More innovative software is coming soon...",
-                team_title: "THE DIVISIONS", team_desc: "Choose party members to accompany you in the village. (Click to see members)",
-                team_utama: "MAIN MEMBERS", team_multimedia: "MULTIMEDIA", team_keamanan: "SECURITY", team_humas: "PR & ASSETS", team_olahraga: "SPORTS & SPIRITUAL", team_wirausaha: "ENTREPRENEURSHIP & ARTS", team_sistem: "DIGITAL INFO SYSTEM", click_view: "Click to view",
+                gallery_title: "HEADSPACE MEMORIES", gallery_desc: "A collection of general activities in our neighborhood.", memory_1: "Community Work", memory_2: "Group Discussion", memory_3: "Religious Activities", memory_4: "Festival Activities", memory_5: "Sports Activities", memory_6: "Picnic",
+                project_title: "CURRENT QUESTS", quest_1_title: "INDEPENDENCE DAY PREP", quest_1_desc: "Preparing various competitions and events to celebrate independence day.", quest_2_title: "COMMUNITY CLEANUP", quest_2_desc: "Cleaning the village environment together for mutual comfort.",
+                software_title: "OUR SOFTWARE", software_desc: "Our digital applications and systems that will continue to grow.", soft_badge: "ACTIVE", soft_1_title: "Katarpostmaker", soft_1_desc: "Post generator app for Karang Taruna social media needs to keep designs neat.", soft_2_title: "Aplikasi17an", soft_2_desc: "Competition, participant, and score management system specifically for village independence events.", soft_3_title: "Coming Soon", soft_3_desc: "More innovative software is coming soon...", click_download: "Click to Download",
+                team_title: "THE DIVISIONS", team_desc: "Choose party members to accompany you in the village. (Click to see members)", team_utama: "MAIN MEMBERS", team_multimedia: "MULTIMEDIA", team_keamanan: "SECURITY", team_humas: "PR & ASSETS", team_olahraga: "SPORTS & SPIRITUAL", team_wirausaha: "ENTREPRENEURSHIP & ARTS", team_sistem: "DIGITAL INFO SYSTEM", click_view: "Click to view",
                 contact_title: "CONTACT US", contact_name_label: "Your Name:", contact_name_placeholder: "What is your name?", contact_msg_label: "Message:", contact_msg_placeholder: "What do you want to say?", contact_btn: "SEND MESSAGE",
                 footer_text: "© 2026 KARANG TARUNA UNIT 28 | EVERYTHING IS GOING TO BE OKAY.",
-                swal_empty_title: "STAIRS...", swal_empty_text: "Don't leave the fields empty like a lost memory.",
-                swal_send_title: "Send Message?", swal_send_text: "You will enter the WhatsApp portal of the Admin.", swal_btn_yes: "Yes, Send!", swal_btn_no: "Cancel"
+                swal_empty_title: "STAIRS...", swal_empty_text: "Don't leave the fields empty like a lost memory.", swal_send_title: "Send Message?", swal_send_text: "You will enter the WhatsApp portal of the Admin.", swal_btn_yes: "Yes, Send!", swal_btn_no: "Cancel"
             },
             jp: {
-                nav_title: "Katar Unit 28",
-                nav_home: "ホーム", nav_about: "アバウト", nav_gallery: "ギャラリー", nav_project: "プロジェクト", nav_software: "ソフトウェア", nav_divisi: "部門", nav_contact: "連絡先",
-                hero_welcome: "へようこそ", hero_title: "KATAR UNIT 28", 
-                hero_subtitle: "「何かが起こるのを待っている？Karang Tarunaと一緒に働きましょう。」", hero_btn: "もっと詳しく",
+                nav_title: "Katar Unit 28", nav_home: "ホーム", nav_about: "アバウト", nav_gallery: "ギャラリー", nav_project: "プロジェクト", nav_software: "ソフトウェア", nav_divisi: "部門", nav_contact: "連絡先",
+                hero_welcome: "へようこそ", hero_title: "KATAR UNIT 28", hero_subtitle: "「何かが起こるのを待っている？Karang Tarunaと一緒に働きましょう。」", hero_btn: "もっと詳しく",
                 about_title: "私たちは誰ですか？", about_desc: "私たちはボジョン・リオ村のKarang Taruna Unit 28です。村を前進させるために現実と夢を紡ぐ若者のグループです。落書きでいっぱいの日記のように、私たちが行うすべての社会活動は、私たちが未来のために書く物語です。",
-                gallery_title: "ヘッドスペースの思い出", gallery_desc: "私たちの地域の一般的な活動のコレクション。",
-                memory_1: "共同作業", memory_2: "グループディスカッション", memory_3: "宗教行事", memory_4: "お祭り", memory_5: "スポーツ活動", memory_6: "ピクニック",
-                project_title: "現在のクエスト", 
-                quest_1_title: "独立記念日の準備", quest_1_desc: "独立記念日を祝うための様々な競技やイベントの準備。",
-                quest_2_title: "地域清掃", quest_2_desc: "互いの快適さのために村の環境を一緒に掃除する。",
-                software_title: "私たちのソフトウェア", software_desc: "成長を続ける私たちのデジタルアプリケーションとシステム。",
-                soft_badge: "アクティブ", soft_1_title: "Katarpostmaker", soft_1_desc: "デザインをきれいに保つためのKarang Tarunaソーシャルメディアのポストジェネレーターアプリ。",
-                soft_2_title: "Aplikasi17an", soft_2_desc: "村の独立記念日イベントに特化した競技、参加者、スコア管理システム。",
-                soft_3_title: "近日公開", soft_3_desc: "さらに革新的なソフトウェアが間もなく登場します...",
-                team_title: "部門", team_desc: "村であなたに同行するパーティーメンバーを選択してください。（クリックして表示）",
-                team_utama: "メインメンバー", team_multimedia: "マルチメディア", team_keamanan: "セキュリティ", team_humas: "広報と資産", team_olahraga: "スポーツと精神", team_wirausaha: "起業家精神と芸術", team_sistem: "デジタル情報システム", click_view: "クリックして表示",
+                gallery_title: "ヘッドスペースの思い出", gallery_desc: "私たちの地域の一般的な活動のコレクション。", memory_1: "共同作業", memory_2: "グループディスカッション", memory_3: "宗教行事", memory_4: "お祭り", memory_5: "スポーツ活動", memory_6: "ピクニック",
+                project_title: "現在のクエスト", quest_1_title: "独立記念日の準備", quest_1_desc: "独立記念日を祝うための様々な競技やイベントの準備。", quest_2_title: "地域清掃", quest_2_desc: "互いの快適さのために村の環境を一緒に掃除する。",
+                software_title: "私たちのソフトウェア", software_desc: "成長を続ける私たちのデジタルアプリケーションとシステム。", soft_badge: "アクティブ", soft_1_title: "Katarpostmaker", soft_1_desc: "デザインをきれいに保つためのKarang Tarunaソーシャルメディアのポストジェネレーターアプリ。", soft_2_title: "Aplikasi17an", soft_2_desc: "村の独立記念日イベントに特化した競技、参加者、スコア管理システム。", soft_3_title: "近日公開", soft_3_desc: "さらに革新的なソフトウェアが間もなく登場します...", click_download: "クリックしてダウンロード",
+                team_title: "部門", team_desc: "村であなたに同行するパーティーメンバーを選択してください。（クリックして表示）", team_utama: "メインメンバー", team_multimedia: "マルチメディア", team_keamanan: "セキュリティ", team_humas: "広報と資産", team_olahraga: "スポーツと精神", team_wirausaha: "起業家精神と芸術", team_sistem: "デジタル情報システム", click_view: "クリックして表示",
                 contact_title: "お問い合わせ", contact_name_label: "あなたの名前：", contact_name_placeholder: "お名前は何ですか？", contact_msg_label: "メッセージ：", contact_msg_placeholder: "何を伝えたいですか？", contact_btn: "メッセージを送る",
                 footer_text: "© 2026 KARANG TARUNA UNIT 28 | すべてうまくいくよ。",
-                swal_empty_title: "階段...", swal_empty_text: "失われた記憶のように空白にしないでください。",
-                swal_send_title: "メッセージを送信しますか？", swal_send_text: "管理者のWhatsAppポータルに入ります。", swal_btn_yes: "はい、送信！", swal_btn_no: "キャンセル"
+                swal_empty_title: "階段...", swal_empty_text: "失われた記憶のように空白にしないでください。", swal_send_title: "メッセージを送信しますか？", swal_send_text: "管理者のWhatsAppポータルに入ります。", swal_btn_yes: "はい、送信！", swal_btn_no: "キャンセル"
             }
         };
 
         let currentLang = 'id';
 
-        // Language Switcher Function
         function changeLang(lang) {
             currentLang = lang;
-            
-            // Update buttons visually
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Update text content with animation
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[lang][key]) {
-                    el.style.opacity = 0;
-                    setTimeout(() => {
-                        el.innerText = translations[lang][key];
-                        el.style.opacity = 1;
-                    }, 200);
-                    el.style.transition = 'opacity 0.2s';
-                }
+                if(translations[lang][key]) el.innerText = translations[lang][key];
             });
 
-            // Update placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
                 if(translations[lang][key]) el.placeholder = translations[lang][key];
             });
         }
 
-        // Real Data for Divisions
+        // --- Data & Modal ---
         const divisionData = {
-            utama: {
-                title: { id: "ANGGOTA UTAMA", en: "MAIN MEMBERS", jp: "メインメンバー" },
-                members: [
-                    { name: "Arif Permana Putrasuryana (RT.1)", role: { id: "Ketua Katar Unit 28", en: "Chairman", jp: "会長" } },
-                    { name: "Ario Wicaksono (RT.1)", role: { id: "Wakil Ketua Katar Unit 28", en: "Vice Chairman", jp: "副会長" } },
-                    { name: "Syahwaulia Oktaviandri (RT.2)", role: { id: "Sekretaris", en: "Secretary", jp: "秘書" } },
-                    { name: "Salwa (RT.1)", role: { id: "Bendahara", en: "Treasurer", jp: "会計" } },
-                    { name: "Faradillah Eka (RT.1)", role: { id: "Wakil Sekretaris", en: "Vice Secretary", jp: "副秘書" } },
-                    { name: "Aqilla (RT.1)", role: { id: "Wakil Bendahara", en: "Vice Treasurer", jp: "副会計" } }
-                ]
-            },
-            multimedia: {
-                title: { id: "MULTIMEDIA", en: "MULTIMEDIA", jp: "マルチメディア" },
-                members: [
-                    { name: "Aliefa Ramadanti (RT.1)", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
-                    { name: "Ilham Syahwandi", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
-                    { name: "Syahwaulia Oktaviandri (RT.2)", role: { id: "Sekretaris", en: "Secretary", jp: "秘書" } }
-                ]
-            },
-            keamanan: {
-                title: { id: "KEAMANAN", en: "SECURITY", jp: "セキュリティ" },
-                members: [
-                    { name: "Ario (RT.1)", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
-                    { name: "Adit", role: { id: "Anggota", en: "Member", jp: "メンバー" } }
-                ]
-            },
-            humas: {
-                title: { id: "HUMAS & ASET", en: "PR & ASSETS", jp: "広報と資産" },
-                members: [
-                    { name: "Suci Al Desti Febriyani", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
-                    { name: "Safira Rahmadini", role: { id: "Anggota", en: "Member", jp: "メンバー" } }
-                ]
-            },
-            olahraga: {
-                title: { id: "OLAHRAGA & KEROHANIAN", en: "SPORTS & SPIRITUAL", jp: "スポーツと精神" },
-                members: [
-                    { name: "Muhammad Azzam Syuhada (RT.5)", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
-                    { name: "Randi Gunawan (RT.5)", role: { id: "Anggota", en: "Member", jp: "メンバー" } }
-                ]
-            },
-            wirausaha: {
-                title: { id: "KEWIRAUSAHAAN & SENI BUDAYA", en: "ENTREPRENEURSHIP & ARTS", jp: "起業家精神と芸術" },
-                members: [
-                    { name: "Khalaf Aidil Muzhaffar", role: { id: "Anggota", en: "Member", jp: "メンバー" } }
-                ]
-            },
-            sistem: {
-                title: { id: "SISTEM INFORMASI DIGITAL", en: "DIGITAL INFO SYSTEM", jp: "デジタル情報システム" },
-                members: [
-                    { name: "Arif Permana Putrasuryana (RT.1)", role: { id: "Ketua Pelaksana", en: "Executive Chairman", jp: "実行委員長" } }
-                ]
-            }
+            utama: { title: { id: "ANGGOTA UTAMA", en: "MAIN MEMBERS", jp: "メインメンバー" }, members: [ { name: "Arif Permana Putrasuryana (RT.1)", role: { id: "Ketua Katar Unit 28", en: "Chairman", jp: "会長" } }, { name: "Ario Wicaksono (RT.1)", role: { id: "Wakil Ketua Katar Unit 28", en: "Vice Chairman", jp: "副会長" } }, { name: "Syahwaulia Oktaviandri (RT.2)", role: { id: "Sekretaris", en: "Secretary", jp: "秘書" } }, { name: "Salwa (RT.1)", role: { id: "Bendahara", en: "Treasurer", jp: "会計" } }, { name: "Faradillah Eka (RT.1)", role: { id: "Wakil Sekretaris", en: "Vice Secretary", jp: "副秘書" } }, { name: "Aqilla (RT.1)", role: { id: "Wakil Bendahara", en: "Vice Treasurer", jp: "副会計" } } ] },
+            multimedia: { title: { id: "MULTIMEDIA", en: "MULTIMEDIA", jp: "マルチメディア" }, members: [ { name: "Aliefa Ramadanti (RT.1)", role: { id: "Anggota", en: "Member", jp: "メンバー" } }, { name: "Ilham Syahwandi", role: { id: "Anggota", en: "Member", jp: "メンバー" } }, { name: "Syahwaulia Oktaviandri (RT.2)", role: { id: "Sekretaris", en: "Secretary", jp: "秘書" } } ] },
+            keamanan: { title: { id: "KEAMANAN", en: "SECURITY", jp: "セキュリティ" }, members: [ { name: "Ario (RT.1)", role: { id: "Anggota", en: "Member", jp: "メンバー" } }, { name: "Adit", role: { id: "Anggota", en: "Member", jp: "メンバー" } } ] },
+            humas: { title: { id: "HUMAS & ASET", en: "PR & ASSETS", jp: "広報と資産" }, members: [ { name: "Suci Al Desti Febriyani", role: { id: "Anggota", en: "Member", jp: "メンバー" } }, { name: "Safira Rahmadini", role: { id: "Anggota", en: "Member", jp: "メンバー" } } ] },
+            olahraga: { title: { id: "OLAHRAGA & KEROHANIAN", en: "SPORTS & SPIRITUAL", jp: "スポーツと精神" }, members: [ { name: "Muhammad Azzam Syuhada (RT.5)", role: { id: "Anggota", en: "Member", jp: "メンバー" } }, { name: "Randi Gunawan (RT.5)", role: { id: "Anggota", en: "Member", jp: "メンバー" } } ] },
+            wirausaha: { title: { id: "KEWIRAUSAHAAN & SENI BUDAYA", en: "ENTREPRENEURSHIP & ARTS", jp: "起業家精神と芸術" }, members: [ { name: "Khalaf Aidil Muzhaffar", role: { id: "Anggota", en: "Member", jp: "メンバー" } } ] },
+            sistem: { title: { id: "SISTEM INFORMASI DIGITAL", en: "DIGITAL INFO SYSTEM", jp: "デジタル情報システム" }, members: [ { name: "Arif Permana Putrasuryana (RT.1)", role: { id: "Ketua Pelaksana", en: "Executive Chairman", jp: "実行委員長" } } ] }
         };
 
-        // Modal Logic
         function openModal(divId) {
             const data = divisionData[divId];
             document.getElementById('modalTitle').innerText = data.title[currentLang];
-            
             const listEl = document.getElementById('modalList');
             listEl.innerHTML = '';
-            
             data.members.forEach(member => {
                 const li = document.createElement('li');
-                li.innerHTML = `
-                    <span class="name">${member.name}</span>
-                    <span class="role"><i class="fas fa-level-up-alt fa-rotate-90"></i> ${member.role[currentLang]}</span>
-                `;
+                li.innerHTML = `<span class="name">${member.name}</span><span class="role"><i class="fas fa-caret-right"></i> ${member.role[currentLang]}</span>`;
                 listEl.appendChild(li);
             });
-
             document.getElementById('teamModal').classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling in background
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(e) {
             if(e) {
-                // If clicked on overlay or close button
                 if(e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
                     document.getElementById('teamModal').classList.remove('active');
-                    document.body.style.overflow = 'auto'; // Restore scrolling
+                    document.body.style.overflow = 'auto';
                 }
             } else {
                 document.getElementById('teamModal').classList.remove('active');
@@ -814,7 +744,6 @@
             }
         }
 
-        // WhatsApp Sender Logic
         function sendToWA() {
             const name = document.getElementById('name').value;
             const message = document.getElementById('message').value;
@@ -823,27 +752,16 @@
 
             if (!name || !message) {
                 Swal.fire({
-                    title: t.swal_empty_title,
-                    text: t.swal_empty_text,
-                    icon: 'error',
-                    confirmButtonColor: '#212529',
-                    background: '#fff',
-                    customClass: {
-                        popup: 'animated tada'
-                    }
+                    title: t.swal_empty_title, text: t.swal_empty_text, icon: 'error',
+                    confirmButtonColor: '#4a3b69', background: '#ffffff'
                 });
                 return;
             }
 
             Swal.fire({
-                title: t.swal_send_title,
-                text: t.swal_send_text,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#cbaacb',
-                cancelButtonColor: '#212529',
-                confirmButtonText: t.swal_btn_yes,
-                cancelButtonText: t.swal_btn_no
+                title: t.swal_send_title, text: t.swal_send_text, icon: 'question',
+                showCancelButton: true, confirmButtonColor: '#cbaacb', cancelButtonColor: '#4a3b69',
+                confirmButtonText: t.swal_btn_yes, cancelButtonText: t.swal_btn_no
             }).then((result) => {
                 if (result.isConfirmed) {
                     const fullMessage = `Halo Karang Taruna!%0ANama: ${name}%0APesan: ${message}`;
