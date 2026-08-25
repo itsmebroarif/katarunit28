@@ -9,6 +9,11 @@ function cycleLang() {
     changeLang(newLang);
     document.getElementById('currentLangLabel').innerText = newLang.toUpperCase();
     if (typeof renderQuests === 'function') renderQuests();
+    if (typeof renderMemories === 'function') renderMemories();
+    if (typeof renderEvents === 'function') renderEvents();
+    if (typeof renderSoftware === 'function') renderSoftware();
+    if (typeof renderAboutSupport === 'function') renderAboutSupport();
+    if (typeof renderCoreTeam === 'function') renderCoreTeam();
     if (typeof startTypewriter === 'function') startTypewriter();
 }
 

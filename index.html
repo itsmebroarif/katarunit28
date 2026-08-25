@@ -31,7 +31,7 @@
     <div class="sprite sprite-bubble"><i class="fas fa-comment-dots"></i></div>
 
     <!-- Navigation -->
-    <nav class="omori-box">
+    <nav>
         <div class="logo">
             <img src="logo-karang-taruna.png" alt="Logo">
             <span data-i18n="nav_title">Katar Unit 28</span>
@@ -41,6 +41,7 @@
                 <a href="#home" data-i18n="nav_home">Home</a>
                 <a href="#about" data-i18n="nav_about">About</a>
                 <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+                <a href="#event" data-i18n="nav_event">Event</a>
                 <a href="#project" data-i18n="nav_project">Project</a>
                 <a href="#software" data-i18n="nav_software">Software</a>
                 <a href="#team" data-i18n="nav_divisi">Divisi</a>
@@ -59,6 +60,7 @@
         <a href="#home"><i class="fas fa-home"></i><span data-i18n="nav_home">Home</span></a>
         <a href="#about"><i class="fas fa-info-circle"></i><span data-i18n="nav_about">About</span></a>
         <a href="#gallery"><i class="fas fa-images"></i><span data-i18n="nav_gallery">Gallery</span></a>
+        <a href="#event"><i class="fas fa-calendar-day"></i><span data-i18n="nav_event">Event</span></a>
         <a href="#project"><i class="fas fa-flag"></i><span data-i18n="nav_project">Project</span></a>
         <a href="#software"><i class="fas fa-laptop-code"></i><span data-i18n="nav_software">Software</span></a>
         <a href="#team"><i class="fas fa-users"></i><span data-i18n="nav_divisi">Divisi</span></a>
@@ -89,41 +91,44 @@
                 </p>
             </div>
         </div>
+
+        <!-- Komponen pendukung -->
+        <div class="about-support">
+            <div class="stat-row" id="statRow"></div>
+            <div class="value-grid" id="valueGrid"></div>
+        </div>
+
+        <!-- Profil Tim Inti -->
+        <div style="text-align: center; margin-top: 50px;">
+            <h2 class="section-title" data-i18n="core_title">THE CORE TEAM</h2>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="core_desc">Profil inti organisasi (terpisah dari tampilan divisi).</p>
+        </div>
+        <div class="core-team-grid" id="coreTeamGrid"></div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery">
         <div style="text-align: center;">
             <h2 class="section-title" data-i18n="gallery_title">HEADSPACE MEMORIES</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="gallery_desc">Kumpulan kegiatan umum di lingkungan kita.</p>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="gallery_desc">Pilih kategori untuk menjelajahi kenangan & program warga.</p>
         </div>
         
-        <div class="grid-gallery">
-            <div class="gallery-item omori-box">
-                <i class="fas fa-broom"></i>
-                <p data-i18n="memory_1">Kerja Bakti</p>
-            </div>
-            <div class="gallery-item omori-box">
-                <i class="fas fa-comments"></i>
-                <p data-i18n="memory_2">Diskusi Bersama</p>
-            </div>
-            <div class="gallery-item omori-box">
-                <i class="fas fa-mosque"></i>
-                <p data-i18n="memory_3">Kegiatan Keagamaan</p>
-            </div>
-            <div class="gallery-item omori-box">
-                <i class="fas fa-drum"></i>
-                <p data-i18n="memory_4">Kegiatan Festival</p>
-            </div>
-            <div class="gallery-item omori-box">
-                <i class="fas fa-volleyball-ball"></i>
-                <p data-i18n="memory_5">Kegiatan Olahraga</p>
-            </div>
-            <div class="gallery-item omori-box">
-                <i class="fas fa-tree"></i>
-                <p data-i18n="memory_6">Piknik</p>
-            </div>
+        <!-- Kategori memori dirender otomatis dari data (js/data/memories.js) -->
+        <div class="grid-gallery"></div>
+    </section>
+
+    <!-- Event Section (Kegiatan Umum) -->
+    <section id="event">
+        <div style="text-align: center;">
+            <h2 class="section-title" data-i18n="event_title">EVENT</h2>
+            <p style="margin-top: 10px; font-weight: bold;" data-i18n="event_desc">Kumpulan kegiatan umum warga Bojong Lio.</p>
         </div>
+
+        <!-- Banner Upcoming Event (dirender dari js/data/events.js) -->
+        <div class="upcoming-banner omori-box" id="upcomingBanner"></div>
+
+        <!-- Kartu event dirender otomatis dari data (js/data/events.js) -->
+        <div class="event-grid" id="eventGrid"></div>
     </section>
 
     <!-- Project Section -->
@@ -142,29 +147,8 @@
             <p style="margin-top: 10px; font-weight: bold;" data-i18n="software_desc">Aplikasi dan sistem digital karya kami yang akan terus bertambah.</p>
         </div>
         
-        <div class="software-grid">
-            <div class="software-card omori-box" onclick="window.location.href='https://katarpostmaker.vercel.app/'">
-                <div class="badge" data-i18n="soft_badge">ACTIVE</div>
-                <i class="fas fa-magic"></i>
-                <h3 data-i18n="soft_1_title">Katarpostmaker</h3>
-                <p data-i18n="soft_1_desc" style="margin-top: 10px;">Aplikasi generator post untuk kebutuhan sosial media Karang Taruna agar desain selalu rapi.</p>
-                <div class="download-hint"><i class="fas fa-globe"></i> <span data-i18n="click_download" target="_blank">Klik untuk Membuka</span></div>
-            </div>
-            <div class="software-card omori-box" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1kgKC9u_3AKuC1DsB1VTwWfJjc_OnidBx'">
-                <div class="badge" data-i18n="soft_badge">ACTIVE</div>
-                <i class="fas fa-flag-checkered"></i>
-                <h3 data-i18n="soft_2_title">Aplikasi17an</h3>
-                <p data-i18n="soft_2_desc" style="margin-top: 10px;">Sistem manajemen lomba, peserta, dan skor khusus untuk acara tujuh belasan di kampung.</p>
-                <div class="download-hint"><i class="fas fa-download"></i> <span data-i18n="click_download" target="_blank">Klik untuk Download</span></div>
-            </div>
-            <div class="software-card omori-box" onclick="window.location.href='https://siskatar.vercel.app/'">
-                <div class="badge" data-i18n="soft_badge">ACTIVE</div>
-                <i class="fas fa-server"></i>
-                <h3 data-i18n="soft_3_title">Siskatar</h3>
-                <p data-i18n="soft_3_desc" style="margin-top: 10px;">Digunakan untuk managerial event, rundown, anggota, tim, kontak, uang kas, barang, invoice dsb.</p>
-                <div class="download-hint"><i class="fas fa-globe"></i> <span data-i18n="click_download" href="https://siskatar.vercel.app/" target="_blank">Klik untuk Membuka</span></div>
-            </div>
-        </div>
+        <!-- Grid aplikasi dirender otomatis dari data (js/data/software.js) -->
+        <div class="software-grid" id="softwareGrid"></div>
     </section>
 
     <!-- Team / Divisi Section -->
@@ -233,6 +217,10 @@
     <script src="js/data/translations.js"></script>
     <script src="js/data/divisions.js"></script>
     <script src="js/data/quests.js"></script>
+    <script src="js/data/memories.js"></script>
+    <script src="js/data/events.js"></script>
+    <script src="js/data/software.js"></script>
+    <script src="js/data/coreteam.js"></script>
 
     <!-- Fungsi -->
     <script src="js/func/audio-sfx.js"></script>
@@ -240,6 +228,10 @@
     <script src="js/func/i18n.js"></script>
     <script src="js/func/team.js"></script>
     <script src="js/func/quests.js"></script>
+    <script src="js/func/gallery.js"></script>
+    <script src="js/func/events.js"></script>
+    <script src="js/func/software.js"></script>
+    <script src="js/func/about.js"></script>
     <script src="js/func/typewriter.js"></script>
     <script src="js/func/contact.js"></script>
     <script src="js/func/main.js"></script>

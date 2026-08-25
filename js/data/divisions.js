@@ -18,6 +18,7 @@ const divisionData = {
         },
         members: [
             { name: "Arif Permana Putrasuryana (RT.1)", role: { id: "Ketua Pelaksana", en: "Executive Chairman", jp: "実行委員長" } },
+            { name: "Arif (Bono)", role: { id: "Wakil Ketua Pelaksana", en: "Vice Executive Chairman", jp: "副実行委員長" } },
             { name: "Syahwaulia Oktaviandri (RT.2)", role: { id: "Sekretaris", en: "Secretary", jp: "秘書" } },
             { name: "Salwa (RT.1)", role: { id: "Bendahara", en: "Treasurer", jp: "会計" } },
             { name: "Faradillah Eka (RT.1)", role: { id: "Sekretaris 2", en: "Vice Secretary", jp: "副秘書" } },
@@ -47,7 +48,7 @@ const divisionData = {
             jp: "活動や村のイベントにおける秩序と安全を守ります。"
         },
         members: [
-            { name: "Ario (RT.1)", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
+            { name: "Arif (Bono)", role: { id: "Anggota", en: "Member", jp: "メンバー" } },
             { name: "Adit", role: { id: "Anggota", en: "Member", jp: "メンバー" } }
         ]
     },

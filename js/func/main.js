@@ -1,9 +1,14 @@
 /* main.js - Inisialisasi & event listener global */
 
 window.addEventListener('load', () => {
-    // Render grid divisi & quest dari data
+    // Render grid divisi, quest, memori & profil dari data
     renderTeam();
     renderQuests();
+    renderMemories();
+    renderEvents();
+    renderSoftware();
+    renderAboutSupport();
+    renderCoreTeam();
 
     // Terapkan bahasa default
     changeLang(currentLang);

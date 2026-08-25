@@ -14,12 +14,20 @@ js/data/
   translations.js       # Teks terjemahan ID / EN / JP
   divisions.js          # Data divisi & anggota (nama, role, deskripsi)
   quests.js             # Data quest/misi (judul, desc, waktu, lokasi, PIC)
+  memories.js           # Data kategori Headspace Memories (Pendidikan/Keamanan/Kesehatan)
+  events.js             # Data kegiatan umum & upcoming event (+ logika download doc)
+  software.js           # Data aplikasi/software organisasi
+  coreteam.js           # Data profil tim inti & komponen pendukung "Siapa Kami"
 js/func/
   audio-sfx.js          # Efek suara (Web Audio API)
   youtube.js            # Musik latar (YouTube Iframe API)
   i18n.js               # Logika ganti bahasa
   team.js               # Render grid divisi + modal anggota
   quests.js             # Render daftar quest dari data
+  gallery.js            # Render kategori memori + modal sub-kategori
+  events.js             # Render banner upcoming & kartu event + downloadDoc()
+  software.js           # Render grid aplikasi dari data
+  about.js              # Render profil tim inti & komponen pendukung About
   typewriter.js         # Animasi teks ketik (hero)
   contact.js            # Kirim pesan ke WhatsApp
   main.js               # Inisialisasi & event listener (scroll-spy, dll)
@@ -65,8 +73,8 @@ MULTIMEDIA
 
 ━━━━━━━━━━━━━━━
 KEAMANAN
-━━━━━━━━━━━━━━━
-* Arif (Bono) (RT.1)
+━━━━━━━━━━━━━━
+* Arif (Bono)
 └ Anggota
 
 * Adit
@@ -132,7 +140,7 @@ Menjaga ketertiban dan keamanan selama kegiatan maupun acara kampung.
 
 | Nama | Jabatan | Tanggung Jawab |
 |------|---------|----------------|
-| Ario (RT.1) | Anggota | Pengamanan lapangan & posko. |
+| Arif (Bono) | Anggota | Pengamanan lapangan & posko. |
 | Adit | Anggota | Pengaturan arus, parkir & patroli. |
 
 ### HUMAS & ASET
@@ -196,7 +204,7 @@ flowchart TD
     end
 
     subgraph AMAN["KEAMANAN"]
-        K1["Ario (Anggota)"]
+        K1["Arif (Bono) (Anggota)"]
         K2["Adit (Anggota)"]
     end
 
