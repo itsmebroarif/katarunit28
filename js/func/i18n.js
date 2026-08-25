@@ -8,6 +8,8 @@ function cycleLang() {
     const newLang = SITE_CONFIG.langOrder[currentLangIdx];
     changeLang(newLang);
     document.getElementById('currentLangLabel').innerText = newLang.toUpperCase();
+    if (typeof renderQuests === 'function') renderQuests();
+    if (typeof startTypewriter === 'function') startTypewriter();
 }
 
 function changeLang(lang) {

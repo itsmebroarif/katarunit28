@@ -224,3 +224,64 @@ footer { text-align: center; padding: 40px 40px 100px; font-family: 'VT323', mon
     .project-card { flex-direction: column; text-align: center; gap: 20px;}
     .vol-slider { width: 60px; }
 }
+
+/* --- Typewriter --- */
+.typewriter {
+    font-family: 'Gaegu', cursive;
+    font-size: 1.8rem; font-weight: bold; margin: 20px 0;
+    min-height: 2.4rem;
+}
+.typewriter::after {
+    content: '▋';
+    display: inline-block;
+    margin-left: 2px;
+    color: var(--hs-border);
+    animation: twBlink 0.8s steps(1) infinite;
+}
+@keyframes twBlink { 50% { opacity: 0; } }
+
+/* --- Quest meta --- */
+.quest-meta {
+    display: flex; flex-wrap: wrap; gap: 10px 20px;
+    margin-top: 15px; font-family: 'VT323', monospace; font-size: 1.3rem;
+}
+.quest-meta span {
+    background: var(--hs-white); border: 2px solid var(--hs-border);
+    padding: 3px 12px; border-radius: 10px; text-transform: none;
+}
+.project-card:nth-child(even) .quest-meta span { background: var(--hs-white); }
+
+/* --- Nav active (scroll spy) --- */
+.nav-links a.active { background: var(--hs-yellow); transform: scale(1.08) rotate(-2deg); box-shadow: 2px 2px 0px var(--hs-border); }
+.nav-bottom a.active { background: var(--hs-yellow); border-radius: 10px; }
+
+/* --- Scroll hint --- */
+.scroll-hint {
+    margin-top: 35px; font-family: 'VT323', monospace; font-size: 1.4rem;
+    animation: bounce 1.6s infinite;
+}
+.scroll-hint i { display: block; font-size: 2rem; margin-top: 5px; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+
+/* --- Decorative sprites --- */
+.sprite {
+    position: fixed; z-index: 1; pointer-events: none;
+    font-size: 2.2rem; opacity: 0.55; user-select: none;
+    filter: drop-shadow(2px 2px 0 rgba(74,59,105,0.25));
+}
+.sprite-sun    { top: 110px; left: 4%;  animation: floatY 7s ease-in-out infinite; }
+.sprite-cloud  { top: 160px; right: 6%; animation: floatX 11s ease-in-out infinite; }
+.sprite-star   { bottom: 18%; left: 7%;  animation: floatY 6s ease-in-out infinite; }
+.sprite-leaf   { bottom: 22%; right: 5%; animation: floatX 9s ease-in-out infinite; }
+.sprite-heart  { top: 45%; right: 9%;   animation: floatY 8s ease-in-out infinite; }
+.sprite-bubble { top: 55%; left: 5%;    animation: floatX 10s ease-in-out infinite; }
+
+@keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+@keyframes floatX { 0%,100% { transform: translateX(0); } 50% { transform: translateX(18px); } }
+
+@media (max-width: 900px) {
+    .sprite { font-size: 1.6rem; opacity: 0.4; }
+    .sprite-sun { left: 2%; } .sprite-cloud { right: 2%; }
+    .sprite-star, .sprite-bubble { left: 3%; }
+    .sprite-leaf, .sprite-heart { right: 3%; }
+}

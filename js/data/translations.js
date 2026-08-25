@@ -6,7 +6,7 @@
 const translations = {
     id: {
         nav_title: "Katar Unit 28", nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisi", nav_contact: "Contact",
-        hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Menunggu sesuatu terjadi? Mari berkarya bersama Karang Taruna.\"", hero_btn: "Pelajari Lebih Lanjut",
+                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Menunggu sesuatu terjadi? Mari berkarya bersama Karang Taruna.\"", hero_btn: "Pelajari Lebih Lanjut", scroll_hint: "GULIR KE BAWAH",
         about_title: "SIAPA KAMI?", about_desc: "Kami adalah Karang Taruna Unit 28 Kampung Bojong Lio, sekumpulan pemuda yang merajut realita dan mimpi demi memajukan kampung kami. Seperti buku harian yang penuh coretan, setiap aksi sosial yang kami lakukan adalah cerita yang kami tulis untuk masa depan.",
         gallery_title: "HEADSPACE MEMORIES", gallery_desc: "Kumpulan kegiatan umum di lingkungan kita.", memory_1: "Kerja Bakti", memory_2: "Diskusi Bersama", memory_3: "Kegiatan Keagamaan", memory_4: "Kegiatan Festival", memory_5: "Kegiatan Olahraga", memory_6: "Piknik",
         project_title: "CURRENT QUESTS", quest_1_title: "PERSIAPAN TUJUH BELASAN", quest_1_desc: "Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.", quest_2_title: "KERJA BAKTI BERSAMA", quest_2_desc: "Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.",
@@ -18,7 +18,7 @@ const translations = {
     },
     en: {
         nav_title: "Katar Unit 28", nav_home: "Home", nav_about: "About", nav_gallery: "Gallery", nav_project: "Project", nav_software: "Software", nav_divisi: "Divisions", nav_contact: "Contact",
-        hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Waiting for something to happen? Let's work together with Karang Taruna.\"", hero_btn: "Learn More",
+                hero_welcome: "WELCOME TO", hero_title: "KATAR UNIT 28", hero_subtitle: "\"Waiting for something to happen? Let's work together with Karang Taruna.\"", hero_btn: "Learn More", scroll_hint: "SCROLL",
         about_title: "WHO ARE WE?", about_desc: "We are Karang Taruna Unit 28 of Bojong Lio Village, a group of youths weaving reality and dreams to advance our village. Like a diary full of scribbles, every social action we take is a story we write for the future.",
         gallery_title: "HEADSPACE MEMORIES", gallery_desc: "A collection of general activities in our neighborhood.", memory_1: "Community Work", memory_2: "Group Discussion", memory_3: "Religious Activities", memory_4: "Festival Activities", memory_5: "Sports Activities", memory_6: "Picnic",
         project_title: "CURRENT QUESTS", quest_1_title: "INDEPENDENCE DAY PREP", quest_1_desc: "Preparing various competitions and events to celebrate independence day.", quest_2_title: "COMMUNITY CLEANUP", quest_2_desc: "Cleaning the village environment together for mutual comfort.",
@@ -30,7 +30,7 @@ const translations = {
     },
     jp: {
         nav_title: "Katar Unit 28", nav_home: "ホーム", nav_about: "アバウト", nav_gallery: "ギャラリー", nav_project: "プロジェクト", nav_software: "ソフトウェア", nav_divisi: "部門", nav_contact: "連絡先",
-        hero_welcome: "へようこそ", hero_title: "KATAR UNIT 28", hero_subtitle: "「何かが起こるのを待っている？Karang Tarunaと一緒に働きましょう。」", hero_btn: "もっと詳しく",
+                hero_welcome: "へようこそ", hero_title: "KATAR UNIT 28", hero_subtitle: "「何かが起こるのを待っている？Karang Tarunaと一緒に働きましょう。」", hero_btn: "もっと詳しく", scroll_hint: "スクロール",
         about_title: "私たちは誰ですか？", about_desc: "私たちはボジョン・リオ村のKarang Taruna Unit 28です。村を前進させるために現実と夢を紡ぐ若者のグループです。落書きでいっぱいの日記のように、私たちが行うすべての社会活動は、私たちが未来のために書く物語です。",
         gallery_title: "ヘッドスペースの思い出", gallery_desc: "私たちの地域の一般的な活動のコレクション。", memory_1: "共同作業", memory_2: "グループディスカッション", memory_3: "宗教行事", memory_4: "お祭り", memory_5: "スポーツ活動", memory_6: "ピクニック",
         project_title: "現在のクエスト", quest_1_title: "独立記念日の準備", quest_1_desc: "独立記念日を祝うための様々な競技やイベントの準備。", quest_2_title: "地域清掃", quest_2_desc: "互いの快適さのために村の環境を一緒に掃除する。",

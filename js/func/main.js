@@ -1,12 +1,29 @@
 /* main.js - Inisialisasi & event listener global */
 
 window.addEventListener('load', () => {
-    // Render grid divisi dari data
+    // Render grid divisi & quest dari data
     renderTeam();
+    renderQuests();
 
     // Terapkan bahasa default
     changeLang(currentLang);
     document.getElementById('currentLangLabel').innerText = currentLang.toUpperCase();
+    startTypewriter();
+
+    // Scroll-spy: sorot nav aktif sesuai section yang terlihat
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a, .nav-bottom a');
+    const spy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(s => spy.observe(s));
 
     // Mulai BGM saat klik pertama di mana saja
     document.body.addEventListener('click', () => {

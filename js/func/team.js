@@ -24,7 +24,9 @@ function openModal(divId) {
     playClickSound();
     const data = divisionData[divId];
     const title = data.title[currentLang];
-    let htmlContent = '<ul style="list-style:none; padding:0; text-align:left; max-height:40vh; overflow-y:auto;">';
+    const desc = data.desc ? data.desc[currentLang] : '';
+    let htmlContent = `<p style="text-align:left; font-family:'Gaegu', cursive; font-size:1.4rem; margin-bottom:15px; font-weight:bold;">${desc}</p>`;
+    htmlContent += '<ul style="list-style:none; padding:0; text-align:left; max-height:40vh; overflow-y:auto;">';
     data.members.forEach(member => {
         htmlContent += `<li style="background:var(--hs-white); border:3px solid var(--hs-border); border-radius:10px; padding:15px; margin-bottom:10px;">
             <span style="font-weight:bold; font-size:1.6rem; display:block; font-family:'VT323', monospace;">${member.name}</span>

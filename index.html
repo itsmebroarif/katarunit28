@@ -22,6 +22,14 @@
     <!-- Hidden YouTube Player -->
     <div id="ytplayer" style="display: none;"></div>
 
+    <!-- Decorative sprites -->
+    <div class="sprite sprite-sun"><i class="fas fa-sun"></i></div>
+    <div class="sprite sprite-cloud"><i class="fas fa-cloud"></i></div>
+    <div class="sprite sprite-star"><i class="fas fa-star"></i></div>
+    <div class="sprite sprite-leaf"><i class="fas fa-leaf"></i></div>
+    <div class="sprite sprite-heart"><i class="fas fa-heart"></i></div>
+    <div class="sprite sprite-bubble"><i class="fas fa-comment-dots"></i></div>
+
     <!-- Navigation -->
     <nav class="omori-box">
         <div class="logo">
@@ -62,8 +70,9 @@
         <div class="home-content omori-box">
             <p class="welcome-text" data-i18n="hero_welcome">WELCOME TO</p>
             <h1 class="hero-title" data-i18n="hero_title">KATAR UNIT 28</h1>
-            <p class="hero-subtitle" data-i18n="hero_subtitle">"Menunggu sesuatu terjadi? Mari berkarya bersama <br> <b>Karang Taruna.</b>"</p>
+            <p class="typewriter" id="typewriter"></p>
             <button class="action-btn" onclick="location.href='#about'" data-i18n="hero_btn">Pelajari Lebih Lanjut</button>
+            <div class="scroll-hint" data-i18n="scroll_hint">SCROLL<i class="fas fa-angle-down"></i></div>
         </div>
     </section>
 
@@ -122,22 +131,8 @@
         <div>
             <h2 class="section-title" data-i18n="project_title">CURRENT QUESTS</h2>
         </div>
-        <div class="project-list">
-            <div class="project-card omori-box">
-                <div>
-                    <h3 data-i18n="quest_1_title">PERSIAPAN TUJUH BELASAN</h3>
-                    <p data-i18n="quest_1_desc" style="margin-top: 10px; font-weight: bold;">Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.</p>
-                </div>
-                <div class="project-icon"><i class="fas fa-flag"></i></div>
-            </div>
-            <div class="project-card omori-box">
-                <div>
-                    <h3 data-i18n="quest_2_title">KERJA BAKTI BERSAMA</h3>
-                    <p data-i18n="quest_2_desc" style="margin-top: 10px; font-weight: bold;">Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.</p>
-                </div>
-                <div class="project-icon"><i class="fas fa-hands-helping"></i></div>
-            </div>
-        </div>
+        <!-- Daftar quest dirender otomatis dari data (js/data/quests.js) -->
+        <div class="project-list"></div>
     </section>
 
     <!-- Software Section -->
@@ -237,12 +232,15 @@
     <script src="js/data/config.js"></script>
     <script src="js/data/translations.js"></script>
     <script src="js/data/divisions.js"></script>
+    <script src="js/data/quests.js"></script>
 
     <!-- Fungsi -->
     <script src="js/func/audio-sfx.js"></script>
     <script src="js/func/youtube.js"></script>
     <script src="js/func/i18n.js"></script>
     <script src="js/func/team.js"></script>
+    <script src="js/func/quests.js"></script>
+    <script src="js/func/typewriter.js"></script>
     <script src="js/func/contact.js"></script>
     <script src="js/func/main.js"></script>
 </body>
