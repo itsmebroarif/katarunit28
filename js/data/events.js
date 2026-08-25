@@ -1,8 +1,10 @@
 /**
  * FILE DATA EVENT (KEGIATAN UMUM) & UPCOMING EVENT
  * - eventData     : kartu kegiatan umum (icon, name, desc, doc opsional)
- * - upcomingEvent : satu event mendatang yang ditampilkan sebagai banner
- *   isi doc dengan URL untuk langsung download; biarkan "" agar muncul
+ *   - schedule    : array jadwal { date: "YYYY-MM-DD", note: "keterangan" }.
+ *     Kosongkan ([]) agar popup menampilkan "Belum ada kegiatan tersebut."
+ * - upcomingEvent : satu event mendatang yang ditampilkan sebagai banner.
+ *   Isi doc dengan URL untuk langsung download; biarkan "" agar muncul
  *   pesan "Surat Sedang Dibuat..." (SweetAlert).
  */
 const upcomingEvent = {
@@ -13,7 +15,7 @@ const upcomingEvent = {
         en: "A spirited mini soccer tournament for RW.028 residents.",
         jp: "RW.028住民による熱いミニサッカー大会。"
     },
-    doc: "" // kosong -> SweetAlert "Surat Sedang Dibuat..."
+    doc: ""
 };
 
 const eventData = [
@@ -25,7 +27,12 @@ const eventData = [
             en: "Working together to clean and maintain the village environment.",
             jp: "住民と共に環境を清掃・整備する取り組み。"
         },
-        doc: ""
+        doc: "",
+        schedule: [
+            { date: "2026-09-06", note: "Kerja bakti rutin mingguan" },
+            { date: "2026-09-13", note: "Kerja bakti rutin mingguan" },
+            { date: "2026-09-27", note: "Kerja bakti besar sebelum Mini Soccer" }
+        ]
     },
     {
         icon: "fas fa-comments",
@@ -35,7 +42,8 @@ const eventData = [
             en: "Deliberation and exchanging ideas among residents for shared progress.",
             jp: "住民同士の話し合いとアイデア交換。"
         },
-        doc: ""
+        doc: "",
+        schedule: []
     },
     {
         icon: "fas fa-mosque",
@@ -45,7 +53,10 @@ const eventData = [
             en: "Religious study, communal prayer, and religious holiday observances.",
             jp: "学習会・合同礼拝・宗教的祝日の行事。"
         },
-        doc: ""
+        doc: "",
+        schedule: [
+            { date: "2026-09-05", note: "Pengajian rutin bulanan" }
+        ]
     },
     {
         icon: "fas fa-drum",
@@ -55,7 +66,8 @@ const eventData = [
             en: "Art performances and competitions that enliven the village.",
             jp: "村を盛り上げる舞台芸能と競技。"
         },
-        doc: ""
+        doc: "",
+        schedule: []
     },
     {
         icon: "fas fa-volleyball-ball",
@@ -65,7 +77,10 @@ const eventData = [
             en: "Tournaments and group exercise for a healthy community.",
             jp: "住民の健康のための大会と体操。"
         },
-        doc: ""
+        doc: "",
+        schedule: [
+            { date: "2026-09-20", note: "Senam sehat bersama warga" }
+        ]
     },
     {
         icon: "fas fa-tree",
@@ -75,6 +90,7 @@ const eventData = [
             en: "Relaxed recreation to strengthen community bonds.",
             jp: "共同体の絆を深めるゆったりしたレクリエーション。"
         },
-        doc: ""
+        doc: "",
+        schedule: []
     }
 ];

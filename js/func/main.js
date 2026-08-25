@@ -9,6 +9,7 @@ window.addEventListener('load', () => {
     renderSoftware();
     renderAboutSupport();
     renderCoreTeam();
+    renderChairman();
 
     // Terapkan bahasa default
     changeLang(currentLang);

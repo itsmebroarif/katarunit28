@@ -13,6 +13,7 @@ function cycleLang() {
     if (typeof renderEvents === 'function') renderEvents();
     if (typeof renderSoftware === 'function') renderSoftware();
     if (typeof renderAboutSupport === 'function') renderAboutSupport();
+    if (typeof renderChairman === 'function') renderChairman();
     if (typeof renderCoreTeam === 'function') renderCoreTeam();
     if (typeof startTypewriter === 'function') startTypewriter();
 }

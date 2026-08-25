@@ -1,4 +1,8 @@
-/* contact.js - Kirim pesan ke WhatsApp */
+/* contact.js - Kirim pesan ke WhatsApp
+   Endpoint: https://wa.me/<nomor>?text=<pesan ter-encode>
+   Catatan: wa.me adalah deep-link (bukan REST API), jadi tidak mengembalikan
+   HTTP status code ke browser. Konfirmasi sukses ("TERKIRIM!") ditampilkan
+   di sisi klien setelah tab WhatsApp berhasil dibuka. */
 
 function sendToWA() {
     const name = document.getElementById('name').value;
@@ -23,8 +27,14 @@ function sendToWA() {
     }).then((result) => {
         playClickSound();
         if (result.isConfirmed) {
-            const fullMessage = `Halo Karang Taruna!%0ANama: ${name}%0APesan: ${message}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${fullMessage}`, '_blank');
+            const fullMessage = `Halo Karang Taruna!\nNama: ${name}\nPesan: ${message}`;
+            const endpoint = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+            window.open(endpoint, '_blank');
+            Swal.fire({
+                title: t.wa_sent_title, text: t.wa_sent_text, icon: 'success',
+                confirmButtonColor: 'var(--hs-border)', background: 'var(--hs-white)',
+                customClass: { popup: 'omori-box', confirmButton: 'action-btn' }
+            }).then(() => playClickSound());
         }
     });
 }

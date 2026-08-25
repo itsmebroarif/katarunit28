@@ -6,36 +6,54 @@
  *  - icon      : class Font Awesome
  *  - title     : judul quest per bahasa (id, en, jp)
  *  - desc      : deskripsi quest per bahasa
- *  - datetime  : waktu pelaksanaan (bebas, mis. "2026-08-17 08:00" / "Setiap Minggu")
+ *  - datetime  : waktu tampil di kartu (bebas, mis. "2026-08-17 08:00")
+ *  - startDate : tanggal mulai (YYYY-MM-DD) -> untuk hitung STATUS otomatis
+ *  - endDate   : tanggal selesai (YYYY-MM-DD) -> untuk hitung STATUS otomatis
  *  - location  : tempat pelaksanaan
  *  - pic       : penanggung jawab (Person In Charge)
- * Urutan di dalam array = urutan tampil di website.
+ *
+ * STATUS OTOMATIS berdasarkan tanggal hari ini:
+ *  - hari ini < startDate          -> "AKAN BERJALAN" (upcoming)
+ *  - startDate <= hari ini <= end  -> "SEDANG BERJALAN" (ongoing)
+ *  - hari ini > endDate            -> "SUDAH BERJALAN" (done)
  */
 const questData = [
-    {
-        id: "tujuhbelasan",
-        icon: "fas fa-flag",
-        title: { id: "PERSIAPAN TUJUH BELASAN", en: "INDEPENDENCE DAY PREP", jp: "独立記念日の準備" },
-        desc: {
-            id: "Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.",
-            en: "Preparing various competitions and events to celebrate independence day.",
-            jp: "独立記念日を祝うための様々な競技やイベントの準備。"
-        },
-        datetime: "2026-08-17 08:00",
-        location: "Lapangan Bojong Lio",
-        pic: "Arif Permana Putrasuryana"
+  {
+    id: "tujuhbelasan",
+    icon: "fas fa-flag",
+    title: {
+      id: "PERSIAPAN TUJUH BELASAN",
+      en: "INDEPENDENCE DAY PREP",
+      jp: "独立記念日の準備",
     },
-    {
-        id: "kerjabakti",
-        icon: "fas fa-hands-helping",
-        title: { id: "KERJA BAKTI BERSAMA", en: "COMMUNITY CLEANUP", jp: "地域清掃" },
-        desc: {
-            id: "Membersihkan lingkungan desa bersama-sama untuk kenyamanan bersama.",
-            en: "Cleaning the village environment together for mutual comfort.",
-            jp: "互いの快適さのために村の環境を一緒に掃除する。"
-        },
-        datetime: "Setiap Minggu",
-        location: "Lingkungan Kampung Bojong Lio",
-        pic: "Anggota Utama"
-    }
+    desc: {
+      id: "Menyiapkan berbagai perlombaan dan acara untuk merayakan hari kemerdekaan.",
+      en: "Preparing various competitions and events to celebrate independence day.",
+      jp: "独立記念日を祝うための様々な競技やイベントの準備。",
+    },
+    datetime: "2026-08-17 08:00",
+    startDate: "2026-08-01",
+    endDate: "2026-08-17",
+    location: "Lapangan Bojong Lio",
+    pic: "Arif Permana Putrasuryana",
+  },
+  {
+    id: "minisoccer",
+    icon: "fas fa-futbol",
+    title: {
+      id: "MINI SOCCER RW.028",
+      en: "MINI SOCCER RW.028",
+      jp: "ミニサッカー RW.028",
+    },
+    desc: {
+      id: "Turnamen mini soccer antar warga RW.028 yang penuh semangat dan kekompakan.",
+      en: "A spirited mini soccer tournament among RW.028 residents.",
+      jp: "RW.028住民による熱いミニサッカー大会。",
+    },
+    datetime: "2026-09-12 08:00",
+    startDate: "2026-09-12",
+    endDate: "2026-09-12",
+    location: " BSS Arena Mini Soccer Depok",
+    pic: "Arif Permana Putrasuryana",
+  },
 ];

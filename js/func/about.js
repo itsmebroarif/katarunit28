@@ -28,6 +28,30 @@ function renderAboutSupport() {
     }
 }
 
+function renderChairman() {
+    const card = document.getElementById('chairmanCard');
+    if (!card || typeof chairmanProfile === 'undefined') return;
+    const p = chairmanProfile;
+
+    const bioHtml = p.bio.map(b => `
+        <div class="chairman-bio-item">
+            <b>${b.title[currentLang]}</b>
+            <p>${b.desc[currentLang]}</p>
+        </div>`).join('');
+
+    card.innerHTML = `
+        <img class="chairman-photo" src="${p.photo}" alt="${p.name}" onerror="this.onerror=null;this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=${encodeURIComponent(p.name)}'">
+        <div class="chairman-body">
+            <h3>${p.name} <span style="color:#f28bca;">(${p.alias})</span></h3>
+            <div class="chairman-role">${p.role[currentLang]}</div>
+            ${bioHtml}
+            <button class="doc-btn" onclick="window.open('${p.profileUrl}', '_blank')">
+                <i class="fas fa-user"></i> <span data-i18n="leader_btn">LIHAT PROFIL</span>
+            </button>
+        </div>
+    `;
+}
+
 function renderCoreTeam() {
     const grid = document.getElementById('coreTeamGrid');
     if (!grid) return;
