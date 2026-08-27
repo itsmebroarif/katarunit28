@@ -16,16 +16,6 @@ const coreTeam = [
     photo: "assets/image/img_arif.jpg",
   },
   {
-    name: "Arif (Bono)",
-    rt: "RT.1",
-    role: {
-      id: "Wakil Ketua Pelaksana",
-      en: "Vice Executive Chairman",
-      jp: "副実行委員長",
-    },
-    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=ArifBono",
-  },
-  {
     name: "Syahwaulia Oktaviandri",
     rt: "RT.2",
     role: { id: "Sekretaris", en: "Secretary", jp: "秘書" },
@@ -36,6 +26,16 @@ const coreTeam = [
     rt: "RT.1",
     role: { id: "Bendahara", en: "Treasurer", jp: "会計" },
     photo: "assets/image/salwa.jpg",
+  },
+  {
+    name: "Arif (Bono)",
+    rt: "RT.1",
+    role: {
+      id: "Wakil Ketua Pelaksana",
+      en: "Vice Executive Chairman",
+      jp: "副実行委員長",
+    },
+    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=ArifBono",
   },
   {
     name: "Faradillah Eka",
