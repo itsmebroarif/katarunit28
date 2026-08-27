@@ -13,8 +13,7 @@ const coreTeam = [
     name: "Arif Permana Putrasuryana (RT.1)",
     rt: "RT.1",
     role: { id: "Ketua Pelaksana", en: "Executive Chairman", jp: "実行委員長" },
-    photo:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxLABLeNWEdMZ3hlYuXjQO4zBAFwTqfIf6JsMOnJRy7oRFGsPPiKPyH864&s=10",
+    photo: "assets/image/img_arif.jpg",
   },
   {
     name: "Arif (Bono)",
@@ -30,25 +29,25 @@ const coreTeam = [
     name: "Syahwaulia Oktaviandri",
     rt: "RT.2",
     role: { id: "Sekretaris", en: "Secretary", jp: "秘書" },
-    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=Syahwaulia",
+    photo: "assets/image/img_syahwaulia.jpg",
   },
   {
     name: "Salwa",
     rt: "RT.1",
     role: { id: "Bendahara", en: "Treasurer", jp: "会計" },
-    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=Salwa",
+    photo: "assets/image/salwa.jpg",
   },
   {
     name: "Faradillah Eka",
     rt: "RT.1",
     role: { id: "Sekretaris 2", en: "Vice Secretary", jp: "副秘書" },
-    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=Faradillah",
+    photo: "assets/image/faradilla.jpg",
   },
   {
     name: "Aqilla",
     rt: "RT.1",
     role: { id: "Wakil Bendahara", en: "Vice Treasurer", jp: "副会計" },
-    photo: "https://api.dicebear.com/7.x/pixel-art/svg?seed=Aqilla",
+    photo: "assets/image/aqilla.jpeg",
   },
 ];
 
@@ -100,7 +99,7 @@ const chairmanProfile = {
         en: "Chairman of Karang Taruna Unit 28 Bojong Lio & Digital Technology Expert",
         jp: "Karang Taruna Unit 28 Bojong Lio 会長 & デジタル技術の専門家"
     },
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxLABLeNWEdMZ3hlYuXjQO4zBAFwTqfIf6JsMOnJRy7oRFGsPPiKPyH864&s=10",
+    photo: "assets/image/img_arif.jpg",
     profileUrl: "https://itsmebroarif-apps.vercel.app/#hero",
     bio: [
         {
