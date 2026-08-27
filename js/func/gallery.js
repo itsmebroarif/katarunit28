@@ -25,18 +25,20 @@ function openMemoryModal(catId) {
 
     let html = `<p style="text-align:left; font-family:'Gaegu', cursive; font-size:1.4rem; font-weight:bold; margin-bottom:15px;">${desc}</p>`;
 
+    html += '<div class="memory-sub-grid">';
     data.sub.forEach(sub => {
         const items = sub.items.map(i =>
             `<li style="margin:4px 0 4px 18px; font-family:'Gaegu', cursive; font-size:1.3rem;">${i}</li>`
         ).join('');
 
         html += `
-            <div class="omori-box" style="background:var(--hs-white); border:3px solid var(--hs-border); border-radius:10px; padding:15px; margin-bottom:12px; text-align:left;">
+            <div class="omori-box memory-sub-card">
                 <h3 style="font-size:1.7rem;">${sub.name[currentLang]}</h3>
                 <p style="font-weight:bold; margin:8px 0;">${sub.desc[currentLang]}</p>
                 <ul style="list-style: '▸ ';">${items}</ul>
             </div>`;
     });
+    html += '</div>';
 
     Swal.fire({
         title: `<span style="font-family:'Press Start 2P', cursive; font-size:1.3rem; text-transform:uppercase;">${title}</span>`,

@@ -74,142 +74,8 @@
         <a href="#contact"><i class="fas fa-envelope"></i><span data-i18n="nav_contact">Contact</span></a>
     </div>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="home-content omori-box">
-            <p class="welcome-text" data-i18n="hero_welcome">WELCOME TO</p>
-            <h1 class="hero-title" data-i18n="hero_title">KATAR UNIT 28</h1>
-            <p class="typewriter" id="typewriter"></p>
-            <button class="action-btn" onclick="location.href='#about'" data-i18n="hero_btn">Pelajari Lebih Lanjut</button>
-            <div class="scroll-hint" data-i18n="scroll_hint">SCROLL<i class="fas fa-angle-down"></i></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="about-container">
-            <div class="about-img omori-box">
-                <img src="logo-karang-taruna.png" alt="Logo Katar">
-            </div>
-            <div class="about-text">
-                <h2 class="section-title" data-i18n="about_title">SIAPA KAMI?</h2>
-                <p style="margin-top: 20px; line-height: 1.6;" data-i18n="about_desc">
-                    Kami adalah Karang Taruna Unit 28 Kampung Bojong Lio, sekumpulan pemuda yang merajut realita dan mimpi demi memajukan kampung kami. Seperti buku harian yang penuh coretan, setiap aksi sosial yang kami lakukan adalah cerita yang kami tulis untuk masa depan.
-                </p>
-            </div>
-        </div>
-
-        <!-- Komponen pendukung -->
-        <div class="about-support">
-            <div class="stat-row" id="statRow"></div>
-            <div class="value-grid" id="valueGrid"></div>
-        </div>
-
-        <!-- Profil Tim Inti -->
-        <div style="text-align: center; margin-top: 50px;">
-            <h2 class="section-title" data-i18n="core_title">THE CORE TEAM</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="core_desc">Profil inti organisasi (terpisah dari tampilan divisi).</p>
-        </div>
-        <div class="core-team-grid" id="coreTeamGrid"></div>
-
-        <!-- Tentang Ketua Pelaksana -->
-        <div style="text-align: center; margin-top: 60px;">
-            <h2 class="section-title" data-i18n="leader_title">TENTANG KETUA PELAKSANA</h2>
-        </div>
-        <div class="chairman-card omori-box" id="chairmanCard"></div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div style="text-align: center;">
-            <h2 class="section-title" data-i18n="gallery_title">HEADSPACE MEMORIES</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="gallery_desc">Pilih kategori untuk menjelajahi kenangan & program warga.</p>
-        </div>
-        
-        <!-- Kategori memori dirender otomatis dari data (js/data/memories.js) -->
-        <div class="grid-gallery"></div>
-    </section>
-
-    <!-- Event Section (Kegiatan Umum) -->
-    <section id="event">
-        <div style="text-align: center;">
-            <h2 class="section-title" data-i18n="event_title">EVENT</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="event_desc">Kumpulan kegiatan umum warga Bojong Lio.</p>
-        </div>
-
-        <!-- Banner Upcoming Event (dirender dari js/data/events.js) -->
-        <div class="upcoming-banner omori-box" id="upcomingBanner"></div>
-
-        <!-- Kartu event dirender otomatis dari data (js/data/events.js) -->
-        <div class="event-grid" id="eventGrid"></div>
-    </section>
-
-    <!-- Project Section -->
-    <section id="project">
-        <div>
-            <h2 class="section-title" data-i18n="project_title">CURRENT QUESTS</h2>
-        </div>
-        <!-- Daftar quest dirender otomatis dari data (js/data/quests.js) -->
-        <div class="project-list"></div>
-    </section>
-
-    <!-- Software Section -->
-    <section id="software">
-        <div style="text-align: center;">
-            <h2 class="section-title" data-i18n="software_title">OUR SOFTWARE</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="software_desc">Aplikasi dan sistem digital karya kami yang akan terus bertambah.</p>
-        </div>
-        
-        <!-- Grid aplikasi dirender otomatis dari data (js/data/software.js) -->
-        <div class="software-grid" id="softwareGrid"></div>
-    </section>
-
-    <!-- Team / Divisi Section -->
-    <section id="team">
-        <div style="text-align: center;">
-            <h2 class="section-title" data-i18n="team_title">THE DIVISIONS</h2>
-            <p style="margin-top: 10px; font-weight: bold;" data-i18n="team_desc">Pilih party member untuk menemanimu di desa. (Klik untuk melihat anggota)</p>
-        </div>
-        
-        <!-- Grid divisi dirender otomatis dari data (js/data/divisions.js) -->
-        <div class="team-grid"></div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div style="text-align: center; width: 100%; margin-bottom: 30px;">
-            <h2 class="section-title" data-i18n="contact_title">CONTACT US</h2>
-        </div>
-        
-        <div style="display: flex; gap: 30px; justify-content: center; width: 100%; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
-            
-            <!-- Instagram Card -->
-            <div class="omori-box ig-card" style="flex: 1; min-width: 300px; background: var(--hs-blue); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.transform='scale(1.03) rotate(-2deg)'; this.style.background='var(--hs-yellow)';" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.background='var(--hs-blue)';" onclick="window.open('https://www.instagram.com/karangtarunaunit28/', '_blank')">
-                <i class="fab fa-instagram" style="font-size: 6rem; color: #E1306C; margin-bottom: 20px; text-shadow: 3px 3px 0px var(--hs-white);"></i>
-                <h3 style="font-size: 2.5rem; margin-bottom: 10px;">INSTAGRAM</h3>
-                <p style="font-family: 'Gaegu', cursive; font-size: 1.5rem; font-weight: bold;">@karangtarunaunit28</p>
-                <p style="margin-top: 15px; font-size: 1.2rem; font-family: 'VT323', monospace; background: var(--hs-white); border: 2px solid var(--hs-border); padding: 5px 15px; border-radius: 10px;"><i class="fas fa-hand-pointer"></i> Follow Us!</p>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="contact-box omori-box" style="flex: 2; min-width: 300px; margin: 0;">
-                <div class="form-group">
-                    <label data-i18n="contact_name_label">Nama Anda:</label>
-                    <input type="text" id="name" data-i18n-placeholder="contact_name_placeholder" placeholder="Siapa namamu?">
-                </div>
-                <div class="form-group">
-                    <label data-i18n="contact_msg_label">Pesan:</label>
-                    <textarea id="message" rows="5" data-i18n-placeholder="contact_msg_placeholder" placeholder="Apa yang ingin kamu sampaikan?"></textarea>
-                </div>
-                <button class="action-btn" style="width: 100%; margin-top: 10px;" onclick="sendToWA()" data-i18n="contact_btn">SEND MESSAGE</button>
-            </div>
-            
-        </div>
-    </section>
-
-    <footer>
-        <p data-i18n="footer_text">© 2026 KARANG TARUNA UNIT 28 | EVERYTHING IS GOING TO BE OKAY.</p>
-    </footer>
+    <!-- Komponen HTML dimuat di sini oleh componentLoader.js -->
+    <div id="app"></div>
 
     <!-- Audio Controls Widget -->
     <div class="audio-widget">
@@ -234,6 +100,9 @@
     <script src="js/data/events.js"></script>
     <script src="js/data/software.js"></script>
     <script src="js/data/coreteam.js"></script>
+
+    <!-- Component Loader (harus sebelum func lainnya) -->
+    <script src="js/func/componentLoader.js"></script>
 
     <!-- Fungsi -->
     <script src="js/func/audio-sfx.js"></script>

@@ -1,6 +1,6 @@
 /* main.js - Inisialisasi & event listener global */
 
-window.addEventListener('load', () => {
+window.addEventListener('componentsLoaded', () => {
     // Render grid divisi, quest, memori & profil dari data
     renderTeam();
     renderQuests();
