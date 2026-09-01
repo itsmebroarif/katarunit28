@@ -1,649 +1,469 @@
-<<<<<<< HEAD
-# Profil Resmi Karang Taruna Unit 28 — Kampung Bojong Lio
+# 🇮🇩 Portal Resmi Karang Taruna Unit 28 — Bojong Lio, Sukamaju, Depok
 
-Website profil resmi **Karang Taruna Unit 28 Kampung Bojong Lio** dengan gaya *retro / pixel* ala video game (istilah *"Current Quests"*, *"Party Member"*, dll). Seluruh konten kini **data-driven**: struktur organisasi, quest/misi, dan terjemahan dipisah ke file data yang bisa diedit secara manual (hardcode) tanpa menyentuh logika tampilan.
+Selamat datang di repositori resmi **Portal Web Karang Taruna Unit 28 Kampung Bojong Lio, Kelurahan Sukamaju, Kecamatan Cilodong, Kota Depok, Jawa Barat**. 
 
----
-
-## 📁 Struktur File
-
-```
-index.html              # Markup halaman (tanpa CSS/JS inline)
-css/style.css           # Seluruh styling + animasi + sprite dekoratif
-js/data/
-  config.js             # Pengaturan: WA, video YT, volume, urutan bahasa
-  translations.js       # Teks terjemahan ID / EN / JP
-  divisions.js          # Data divisi & anggota (nama, role, deskripsi)
-  quests.js             # Data quest/misi (judul, desc, waktu, lokasi, PIC)
-  memories.js           # Data kategori Headspace Memories (Pendidikan/Keamanan/Kesehatan)
-  events.js             # Data kegiatan umum & upcoming event (+ logika download doc)
-  software.js           # Data aplikasi/software organisasi
-  coreteam.js           # Data profil tim inti & komponen pendukung "Siapa Kami"
-js/func/
-  audio-sfx.js          # Efek suara (Web Audio API)
-  youtube.js            # Musik latar (YouTube Iframe API)
-  i18n.js               # Logika ganti bahasa
-  team.js               # Render grid divisi + modal anggota
-  quests.js             # Render daftar quest dari data
-  gallery.js            # Render kategori memori + modal sub-kategori
-  events.js             # Render banner upcoming & kartu event + downloadDoc()
-  software.js           # Render grid aplikasi dari data
-  about.js              # Render profil tim inti & komponen pendukung About
-  typewriter.js         # Animasi teks ketik (hero)
-  contact.js            # Kirim pesan ke WhatsApp
-  main.js               # Inisialisasi & event listener (scroll-spy, dll)
-```
+Website ini dirancang sebagai pusat informasi publik, publikasi agenda, transparansi kelembagaan, serta wadah integrasi inovasi pemuda berbasis digital modern dengan arsitektur **Vue.js 3**, **Vite**, **Vuex**, **PWA**, **Bootstrap 5**, **Node.js Express**, dan **GitHub REST API Direct Commit Integration**.
 
 ---
 
-## 👥 Struktur Anggota
+## 📑 Daftar Isi
+1. [Ringkasan & Visi Organisasi](#-ringkasan--visi-organisasi)
+2. [Tech Stack & Arsitektur Sistem](#-tech-stack--arsitektur-sistem)
+3. [Diagram Arsitektur Teknologi](#-diagram-arsitektur-teknologi)
+4. [Diagram Peta Navigasi & Konten Website](#-diagram-peta-navigasi--konten-website)
+5. [Diagram Struktur Organisasi & Keanggotaan](#-diagram-struktur-organisasi--keanggotaan)
+6. [Sistem Divisi & Detail Tanggung Jawab](#-sistem-divisi--detail-tanggung-jawab)
+7. [Fitur-Fitur Utama Website](#-fitur-fitur-utama-website)
+8. [Integrasi Direct Commit via GitHub PAT](#-integrasi-direct-commit-via-github-pat)
+9. [Struktur Direktori Repositori](#-struktur-direktori-repositori)
+10. [Panduan Instalasi & Menjalankan Aplikasi](#-panduan-instalasi--menjalankan-aplikasi)
+11. [Tata Cara Pengelolaan Konten (JSON Database)](#-tata-cara-pengelolaan-konten-json-database)
+12. [Lisensi & Kontak](#-lisensi--kontak)
 
-```
-━━━━━━━━━━━━━━━
-ANGGOTA UTAMA
-━━━━━━━━━━━━━━━
-* Arif Permana Putrasuryana (RT.1)
-└ Ketua Pelaksana
+---
 
-* Arif (Bono)
-└ Wakil Ketua Pelaksana
+## 🌟 Ringkasan & Visi Organisasi
 
-* Syahwaulia Oktaviandri (RT.2)
-└ Sekretaris
+**Karang Taruna Unit 28 Bojong Lio** adalah organisasi kepemudaan non-partisan di tingkat RW/lingkungan Kampung Bojong Lio, Sukamaju, Kota Depok yang berlandaskan semangat kesetiakawanan sosial, gotong royong, dan pengembangan potensi generasi muda.
 
-* Salwa (RT.1)
-└ Bendahara
+### 6 Nilai Dasar Organisasi:
+1. **Gotong Royong & Solidaritas**: Mengedepankan kebersamaan dalam setiap aksi sosial kemasyarakatan.
+2. **Karakter & Integritas**: Membangun pemuda yang berakhlak mulia, disiplin, dan bertanggung jawab.
+3. **Kepedulian Sosial & Tanggap Bencana**: Responsif terhadap kebutuhan warga rentan dan tanggap darurat lingkungan.
+4. **Inovasi & Kecakapan Digital**: Pemanfaatan teknologi informasi modern untuk efisiensi organisasi dan pemberdayaan pemuda.
+5. **Keberlanjutan Lingkungan**: Menjaga kelestarian, kebersihan, dan penghijauan di wilayah Bojong Lio.
+6. **Transparansi & Akuntabilitas**: Keterbukaan informasi program kerja, anggaran, dan pelaporan publik.
 
-* Faradillah Eka (RT.1)
-└ Sekretaris 2
+---
 
-* Aqilla (RT.1)
-└ Wakil Bendahara
+## 💻 Tech Stack & Arsitektur Sistem
 
-━━━━━━━━━━━━━━━
-MULTIMEDIA
-━━━━━━━━━━━━━━━
-* Aliefa Ramadanti (RT.1)
-└ Anggota
+Proyek ini dibangun menggunakan kombinasi teknologi web modern, performa tinggi, dan standar industri:
 
-* Ilham Syahwandi
-└ Anggota
+| Kategori | Teknologi | Deskripsi / Peran dalam Proyek |
+|---|---|---|
+| **Frontend Framework** | **Vue.js 3** (`vue@^3.5.13`) | Menggunakan arsitektur Single File Component (`.vue`), reactivity system modern, dan pemisahan logika tampilan modular. |
+| **Transpiler & Compiler** | **Babel** (`@rollup/plugin-babel`, `@babel/core`, `@babel/preset-env`) | Memastikan kompatibilitas JavaScript generasi terbaru di berbagai peramban web modern dan legacy. |
+| **Build Tool & Bundler** | **Vite 8** (`vite@^8.2.2`, `@vitejs/plugin-vue`) | Menyediakan server development super cepat, Hot Module Replacement yang optimal, dan build production yang terkompresi efisien. |
+| **State Management** | **Vuex 4** (`vuex@^4.1.0`) | Mengelola state terpusat: multibahasa (ID, EN, JP), data profil, agenda kegiatan, divisi anggota, PWA lifecycle, dan konfigurasi GitHub PAT. |
+| **Client-Side Routing** | **Vue Router 4** (`vue-router@^4.5.0`) | Menangani rute halaman utama (Beranda) dan Panel Pengelolaan Konten (Admin Dashboard) secara SPA (*Single Page Application*). |
+| **UI Framework & Styling** | **Bootstrap 5** (`bootstrap@^5.3.3`) | Menyediakan grid system responsif, kartu komponen bersih, navigasi, modal, accordion FAQ, dan utilitas tata letak klasik elegan. |
+| **Typography & Icons** | **Plus Jakarta Sans** & **FontAwesome 6** | Tipografi resmi yang modern dan koleksi ikon vektor berstandar internasional. |
+| **PWA Engine** | **Vite PWA & Workbox** (`vite-plugin-pwa@^1.3.0`) | Web App Manifest, Service Worker otomatis, caching aset offline, dan prompt instalasi aplikasi di perangkat seluler / desktop. |
+| **Backend API Server** | **Node.js & Express.js** (`express@^4.21.2`) | Server backend ringan untuk endpoint REST API (`/api/data`), penyimpanan lokal JSON, dan serving aplikasi production. |
+| **Database & Penyimpanan** | **Structured JSON Database** (`database.json`) | Penyimpanan data terstruktur berbasis file JSON yang mudah dikelola, dapat disinkronkan, dan siap di-push ke cloud repository. |
+| **Integrasi Version Control** | **GitHub REST API (Octokit/Fetch with PAT)** | Fitur Direct Commit langsung dari dashboard website ke repositori GitHub tanpa memerlukan terminal/Git CLI lokal. |
+| **Multibahasa (i18n)** | **Tri-Language Engine (ID / EN / JP)** | Dukungan 3 bahasa secara instan (Bahasa Indonesia, English, 日本語) pada seluruh komponen website. |
 
-* Syahwaulia Oktaviandri (RT.2)
-└ Sekretaris
+---
 
-━━━━━━━━━━━━━━━
-KEAMANAN
-━━━━━━━━━━━━━━
-* Arif (Bono)
-└ Anggota
+## 📐 Diagram Arsitektur Teknologi
 
-* Adit
-└ Anggota
+Diagram berikut menggambarkan bagaimana lapisan antarmuka pengguna, state management, backend, dan integrasi GitHub berkomunikasi:
 
-━━━━━━━━━━━━━━━
-HUMAS & ASET
-━━━━━━━━━━━━━━━
-* Suci Al Desti Febriyani
-└ Anggota
+```mermaid
+graph TD
+    subgraph ClientBrowser["🖥️ Client Browser (PWA & SPA)"]
+        UI["Vue 3 Components (.vue)<br/>Bootstrap 5 + FontAwesome"]
+        Router["Vue Router 4<br/>(/ & /admin)"]
+        VuexStore["Vuex 4 Store<br/>(State: i18n, DB, GitHub PAT, PWA)"]
+        SW["Service Worker (Workbox)<br/>Offline Cache & Manifest"]
+    end
 
-* Safira Rahmadini
-└ Anggota
+    subgraph ServerLayer["⚙️ Local Node.js Express Backend"]
+        Express["Express.js Server (Port 3000)"]
+        APIGet["GET /api/data"]
+        APIPost["POST /api/data"]
+        JSONDB["Local JSON Store<br/>(src/data/database.json)"]
+    end
 
-━━━━━━━━━━━━━━━
-OLAHRAGA & KEROHANIAN
-━━━━━━━━━━━━━━━
-* Muhammad Azzam Syuhada (RT.5)
-└ Anggota
+    subgraph GitHubCloud["☁️ GitHub Remote Cloud Infrastructure"]
+        GitHubAPI["GitHub REST API v3<br/>https://api.github.com/repos/..."]
+        GitRepo["GitHub Repository<br/>(Branch: main)"]
+        RemoteDB["Remote database.json"]
+    end
 
-* Randi Gunawan (RT.5)
-└ Anggota
+    UI <--> Router
+    UI <--> VuexStore
+    SW --> ClientBrowser
+    
+    VuexStore -->|"Fetch local data"| APIGet
+    VuexStore -->|"Save updated data"| APIPost
+    APIGet <--> JSONDB
+    APIPost <--> JSONDB
+    
+    VuexStore -->|"Direct Commit via PAT<br/>(PUT contents API)"| GitHubAPI
+    GitHubAPI -->|"Commit & Push"| RemoteDB
+    RemoteDB --> GitRepo
 
-━━━━━━━━━━━━━━━
-KEWIRAUSAHAAN & SENI BUDAYA
-━━━━━━━━━━━━━━━
-* Khalaf Aidil Muzhaffar
-└ Anggota
-
-━━━━━━━━━━━━━━━
-SISTEM INFORMASI DIGITAL
-━━━━━━━━━━━━━━━
-* Arif Permana Putrasuryana (RT.1)
-└ Ketua Pelaksana
+    style ClientBrowser fill:#eef2ff,stroke:#6366f1,stroke-width:2px;
+    style ServerLayer fill:#f0fdf4,stroke:#22c55e,stroke-width:2px;
+    style GitHubCloud fill:#f8fafc,stroke:#0ea5e9,stroke-width:2px;
 ```
 
 ---
 
-## 🧭 Sistem per Divisi & Tanggung Jawab Anggota
+## 🗺️ Diagram Peta Navigasi & Konten Website
 
-### ANGGOTA UTAMA
-Penggerak utama organisasi. Bertugas memimpin, merumuskan rencana kerja, dan memegang tanggung jawab akhir seluruh program.
+Diagram navigasi dan struktur modul konten yang disajikan kepada pengunjung:
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Arif Permana Putrasuryana (RT.1) | Ketua Pelaksana | Memimpin organisasi, pengambilan keputusan strategis, koordinasi lintas divisi, penanggung jawab utama program. |
-| Syahwaulia Oktaviandri (RT.2) | Sekretaris | Administrasi, notulensi rapat, surat-menyurat & dokumen resmi. |
-| Salwa (RT.1) | Bendahara | Pengelolaan keuangan, kas organisasi, pencatatan pemasukan & pengeluaran. |
-| Faradillah Eka (RT.1) | Sekretaris 2 | Mendukung sekretaris, arkhip digital & komunikasi internal. |
-| Aqilla (RT.1) | Wakil Bendahara | Membantu bendahara & verifikasi laporan keuangan. |
+```mermaid
+graph LR
+    Root["🌐 Portal Unit 28 Bojong Lio"]
 
-### MULTIMEDIA
-Mendidokumentasikan kegiatan dan mengelola publikasi visual organisasi.
+    Root --> Navbar["📌 Header & Navbar"]
+    Navbar --> LangSwitch["🌐 Bahasa: ID | EN | JP"]
+    Navbar --> AdminBtn["⚙️ Kelola Data / Admin"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Aliefa Ramadanti (RT.1) | Anggota | Dokumentasi foto & video kegiatan. |
-| Ilham Syahwandi | Anggota | Produksi konten & editing. |
-| Syahwaulia Oktaviandri (RT.2) | Sekretaris | Merangkap sekretaris: pencatatan & dokumentasi kegiatan. |
+    Root --> SecHome["🏠 1. Hero Section"]
+    SecHome --> HeroStats["📊 4 Statistik Utama"]
+    SecHome --> HeroCTA["🚀 CTA Program & WA Relawan"]
 
-### KEAMANAN
-Menjaga ketertiban dan keamanan selama kegiatan maupun acara kampung.
+    Root --> SecAbout["📖 2. Tentang Kami"]
+    SecAbout --> OrgValues["💎 6 Nilai Dasar Organisasi"]
+    SecAbout --> LeaderProfile["👤 Profil Ketua Pelaksana"]
+    SecAbout --> CoreTeamList["👥 Jajaran Pengurus Inti"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Arif (Bono) | Anggota | Pengamanan lapangan & posko. |
-| Adit | Anggota | Pengaturan arus, parkir & patroli. |
+    Root --> SecEvents["📅 3. Program & Agenda"]
+    SecEvents --> UpcomingTab["⏰ Agenda Mendatang"]
+    SecEvents --> RoutineTab["🔄 Program Rutin"]
+    SecEvents --> ArchiveTab["📁 Arsip Kegiatan"]
+    SecEvents --> DocDownload["📄 Unduh Berita Acara / Laporan"]
 
-### HUMAS & ASET
-Menjalin relasi eksternal, mengelola aset, dan menangani komunikasi publik.
+    Root --> SecDivisions["🏢 4. Struktur Divisi"]
+    SecDivisions --> DivGrid["🗂️ 6 Divisi Kerja Utama"]
+    SecDivisions --> MemberModal["🔍 Modal Detail Anggota"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Suci Al Desti Febriyani | Anggota | Hubungan masyarakat & kerja sama pihak luar. |
-| Safira Rahmadini | Anggota | Inventarisasi & penjagaan aset organisasi. |
+    Root --> SecPillars["🏛️ 5. Pilar & Dokumentasi"]
+    SecPillars --> P1["📚 Literasi & Pendidikan"]
+    SecPillars --> P2["🛡️ Lingkungan & Keamanan"]
+    SecPillars --> P3["🩺 Kesehatan & Sosial"]
 
-### OLAHRAGA & KEROHANIAN
-Menyelenggarakan kegiatan olahraga, kerohanian, dan kebugaran warga.
+    Root --> SecMissions["🎯 6. Misi Pemuda"]
+    SecMissions --> MissionList["📋 Target, PIC & Status Misi"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Muhammad Azzam Syuhada (RT.5) | Anggota | Penyelenggara kegiatan olahraga. |
-| Randi Gunawan (RT.5) | Anggota | Kegiatan kerohanian & kebugaran. |
+    Root --> SecSoftware["💻 7. Inovasi Software"]
+    SecSoftware --> AppGrid["📱 Aplikasi Buatan Pemuda"]
 
-### KEWIRAUSAHAAN & SENI BUDAYA
-Mengembangkan ekonomi kreatif, kewirausahaan, dan melestarikan seni budaya lokal.
+    Root --> SecFAQ["❓ 8. FAQ Warga"]
+    SecFAQ --> AccordionFAQ["📂 6 Tanya Jawab Umum"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Khalaf Aidil Muzhaffar | Anggota | Pengembangan usaha & pelestarian seni budaya. |
+    Root --> Footer["📑 Footer & Legalitas"]
+    Footer --> LocDetail["📍 Alamat Bojong Lio"]
+    Footer --> SocialMedia["📱 Media Sosial & Kontak"]
 
-### SISTEM INFORMASI DIGITAL
-Membangun & merawat sistem informasi digital (website, aplikasi, basis data).
+    Root --> AdminView["🔐 9. Admin & Direct Commit (/admin)"]
+    AdminView --> TokenConfig["🔑 GitHub PAT Manager"]
+    AdminView --> JSONEditor["📝 Form & Raw JSON Editor"]
+    AdminView --> DirectPush["🚀 Direct Commit ke GitHub"]
 
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Arif Permana Putrasuryana (RT.1) | Ketua Pelaksana | Pengembangan & pemeliharaan sistem digital organisasi. |
+    style Root fill:#0d6efd,stroke:#fff,color:#fff,font-weight:bold;
+    style AdminView fill:#7952b3,stroke:#fff,color:#fff,font-weight:bold;
+```
 
 ---
 
-## 🗺️ Flowchart Struktur Organisasi (Mermaid)
+## 👥 Diagram Struktur Organisasi & Keanggotaan
+
+Struktur hierarki kepengurusan Karang Taruna Unit 28 Kampung Bojong Lio:
 
 ```mermaid
 flowchart TD
-    KTU28["Karang Taruna Unit 28<br/>Bojong Lio"]:::root
+    Warga["🏛️ Warga & Pembina Lingkungan (RW / Tokoh Masyarakat)"]:::warga
+    
+    KTU28["👑 KETUA PELAKSANA<br/><b>Arif Permana Putrasuryana (RT.1)</b>"]:::leader
+    WakilKetua["🤝 WAKIL KETUA PELAKSANA<br/><b>Arif (Bono) (RT.1)</b>"]:::leaderSub
+    
+    Sekre1["📝 SEKRETARIS 1<br/><b>Syahwaulia Oktaviandri (RT.2)</b>"]:::sekre
+    Sekre2["📋 SEKRETARIS 2<br/><b>Faradillah Eka (RT.1)</b>"]:::sekre
+    
+    Benda1["💰 BENDAHARA 1<br/><b>Salwa (RT.1)</b>"]:::benda
+    Benda2["🪙 WAKIL BENDAHARA<br/><b>Aqilla (RT.1)</b>"]:::benda
 
-    KTU28 --> UTAMA
-    KTU28 --> MULTI
-    KTU28 --> AMAN
-    KTU28 --> HUMAS
-    KTU28 --> OLAHRAGA
-    KTU28 --> WIRA
-    KTU28 --> SISTEM
+    Warga --> KTU28
+    KTU28 --- WakilKetua
+    KTU28 --> Sekre1
+    Sekre1 --- Sekre2
+    KTU28 --> Benda1
+    Benda1 --- Benda2
 
-    subgraph UTAMA["ANGGOTA UTAMA"]
-        U1["Arif P. (Ketua Pelaksana)"]
-        U2["Syahwaulia O. (Sekretaris)"]
-        U3["Salwa (Bendahara)"]
-        U4["Faradillah E. (Sekretaris 2)"]
-        U5["Aqilla (Wakil Bendahara)"]
-    end
+    KTU28 ==> DIV1["📷 DIVISI MULTIMEDIA<br/>& KOMUNIKASI"]:::divBox
+    KTU28 ==> DIV2["🛡️ DIVISI KETERTIBAN<br/>& KEAMANAN"]:::divBox
+    KTU28 ==> DIV3["📣 DIVISI HUMAS<br/>& ASET ORGANISASI"]:::divBox
+    KTU28 ==> DIV4["🏃 DIVISI OLAHRAGA<br/>& KEROHANIAN"]:::divBox
+    KTU28 ==> DIV5["🏪 DIVISI KEWIRAUSAHAAN<br/>& SENI BUDAYA"]:::divBox
+    KTU28 ==> DIV6["💻 SUB-UNIT SISTEM<br/>INFORMASI DIGITAL"]:::divBox
 
-    subgraph MULTI["MULTIMEDIA"]
-        M1["Aliefa R. (Anggota)"]
-        M2["Ilham S. (Anggota)"]
-        M3["Syahwaulia O. (Sekretaris)"]
-    end
+    %% Anggota Divisi Multimedia
+    DIV1 --> M1["Aliefa Ramadanti (RT.1)<br/><i>Dokumentasi & Fotografi</i>"]
+    DIV1 --> M2["Ilham Syahwandi<br/><i>Editing Konten & Desain</i>"]
+    DIV1 --> M3["Syahwaulia Oktaviandri (RT.2)<br/><i>Koordinator Publikasi</i>"]
 
-    subgraph AMAN["KEAMANAN"]
-        K1["Arif (Bono) (Anggota)"]
-        K2["Adit (Anggota)"]
-    end
+    %% Anggota Divisi Keamanan
+    DIV2 --> K1["Arif (Bono) (RT.1)<br/><i>Pengamanan Lapangan</i>"]
+    DIV2 --> K2["Adit<br/><i>Logistik & Arus Parkir</i>"]
 
-    subgraph HUMAS["HUMAS & ASET"]
-        H1["Suci A. (Anggota)"]
-        H2["Safira R. (Anggota)"]
-    end
+    %% Anggota Divisi Humas
+    DIV3 --> H1["Suci Al Desti Febriyani<br/><i>Hubungan Eksternal</i>"]
+    DIV3 --> H2["Safira Rahmadini<br/><i>Inventarisasi Aset</i>"]
 
-    subgraph OLAHRAGA["OLAHRAGA & KEROHANIAN"]
-        O1["Azzam S. (Anggota)"]
-        O2["Randi G. (Anggota)"]
-    end
+    %% Anggota Divisi Olahraga
+    DIV4 --> O1["Muhammad Azzam Syuhada (RT.5)<br/><i>Penyelenggara Turnamen</i>"]
+    DIV4 --> O2["Randi Gunawan (RT.5)<br/><i>Kebugaran & Kerohanian</i>"]
 
-    subgraph WIRA["KEWIRAUSAHAAN & SENI BUDAYA"]
-        W1["Khalaf A. (Anggota)"]
-    end
+    %% Anggota Divisi Kewirausahaan
+    DIV5 --> W1["Khalaf Aidil Muzhaffar<br/><i>Ekonomi Kreatif & Budaya</i>"]
 
-    subgraph SISTEM["SISTEM INFORMASI DIGITAL"]
-        S1["Arif P. (Ketua Pelaksana)"]
-    end
+    %% Anggota Sub-unit Digital
+    DIV6 --> S1["Arif Permana Putrasuryana (RT.1)<br/><i>Lead Web & Software Architect</i>"]
 
-    classDef root fill:#4a3b69,stroke:#fff,color:#fff,font-weight:bold;
+    classDef warga fill:#475569,stroke:#fff,color:#fff,font-weight:bold;
+    classDef leader fill:#0d6efd,stroke:#fff,color:#fff,font-weight:bold,font-size:14px;
+    classDef leaderSub fill:#3b82f6,stroke:#fff,color:#fff,font-weight:bold;
+    classDef sekre fill:#0284c7,stroke:#fff,color:#fff;
+    classDef benda fill:#059669,stroke:#fff,color:#fff;
+    classDef divBox fill:#1e293b,stroke:#94a3b8,color:#fff,font-weight:bold;
 ```
 
 ---
 
-## 📊 Ringkasan Divisi (Tabel)
+## 🧭 Sistem Divisi & Detail Tanggung Jawab
 
-| Divisi | Ikon | Jumlah Anggota | Fokus Utama |
-|--------|------|:--------------:|-------------|
-| Anggota Utama | 👑 | 5 | Kepemimpinan & koordinasi |
-| Multimedia | 📷 | 3 | Dokumentasi & konten visual |
-| Keamanan | 🛡️ | 2 | Ketertiban & keamanan acara |
-| Humas & Aset | 📣 | 2 | Relasi publik & aset |
-| Olahraga & Kerohanian | 🏃 | 2 | Kebugaran & kegiatan rohani |
-| Kewirausahaan & Seni Budaya | 🏪 | 1 | Usaha & pelestarian budaya |
-| Sistem Informasi Digital | 💻 | 1 | Website & aplikasi organisasi |
+### 1. Pengurus Inti (Anggota Utama)
+Memegang kemudi tertinggi organisasi, menentukan arah kebijakan strategis, pengelolaan anggaran, dan administrasi persuratan resmi.
 
----
-
-## ➕ Cara Menambah ANGGOTA BARU
-
-Buka `js/data/divisions.js`, cari divisi tujuan, lalu tambahkan object baru ke dalam array `members`:
-
-```js
-members: [
-    // ...anggota yang sudah ada...
-    { name: "Nama Baru (RT.x)", role: { id: "Jabatan ID", en: "Role EN", jp: "役職 JP" } }
-]
-```
-
-- `name`  : nama lengkap + RT (boleh "(Empty)" jika kosong).
-- `role`  : jabatan dalam 3 bahasa.
-
-Jumlah anggota di kartu divisi **dihitung otomatis** — tidak perlu diubah manual.
-
-Untuk divisi baru, salin satu blok `namaDivisi: { icon, title, desc, members: [...] }` dan isi `icon` (class Font Awesome), `title` & `desc` (3 bahasa), lalu `members`.
+| Nama | Jabatan | Domisili | Tanggung Jawab Utama |
+|---|---|---|---|
+| **Arif Permana Putrasuryana** | Ketua Pelaksana | RT. 01 | Memimpin organisasi, mengambil keputusan strategis, koordinasi lintas divisi, dan penanggung jawab seluruh program kerja. |
+| **Arif (Bono)** | Wakil Ketua Pelaksana | RT. 01 | Mendampingi ketua, mengawasi operasional harian lapangan, dan memimpin tim pengamanan. |
+| **Syahwaulia Oktaviandri** | Sekretaris 1 | RT. 02 | Tata kelola administrasi resmi, notulensi rapat, arsip persuratan, dan legalitas organisasi. |
+| **Faradillah Eka** | Sekretaris 2 | RT. 01 | Mendukung administrasi sekretariat, digitalisasi dokumen, dan koordinasi presensi anggota. |
+| **Salwa** | Bendahara 1 | RT. 01 | Pengelolaan kas organisasi, pencatatan arus kas masuk/keluar, dan penyusunan laporan keuangan berkala. |
+| **Aqilla** | Wakil Bendahara | RT. 01 | Membantu pencatatan bukti transaksi, audit internal kas kegiatan, dan pembukuan donasi. |
 
 ---
 
-## ➕ Cara Menambah QUEST / MISI BARU
+### 2. Divisi Multimedia & Komunikasi
+Bertanggung jawab atas citra publik, dokumentasi kegiatan foto/video, pengelolaan media sosial, dan materi publikasi visual.
 
-Buka `js/data/quests.js`. Setiap quest adalah satu object di dalam array `questData`. Tambahkan object baru:
-
-```js
-{
-    id: "nama-unik-quest",                       // tanpa spasi, unik
-    icon: "fas fa-flag",                         // class Font Awesome
-    title: {
-        id: "PERSIAPAN TUJUH BELASAN",
-        en: "INDEPENDENCE DAY PREP",
-        jp: "独立記念日の準備"
-    },
-    desc: {
-        id: "Menyiapkan berbagai perlombaan...",
-        en: "Preparing various competitions...",
-        jp: "独立記念日を祝うための..."
-    },
-    datetime: "2026-08-17 08:00",               // bebas, mis. "Setiap Minggu"
-    location: "Lapangan Bojong Lio",            // tempat pelaksanaan
-    pic: "Arif Permana Putrasuryana"            // Penanggung Jawab (PIC)
-}
-```
-
-**Penjelasan field:**
-| Field | Fungsi |
-|-------|--------|
-| `id` | Identifier unik (keperluan teknis). |
-| `icon` | Ikon Font Awesome yang ditampilkan di kartu. |
-| `title` / `desc` | Judul & deskripsi dalam 3 bahasa. |
-| `datetime` | Waktu pelaksanaan (bebas format). |
-| `location` | Lokasi pelaksanaan. |
-| `pic` | Penanggung jawab (Person In Charge). |
-
-Urutan object di dalam array = urutan tampil di website. Tidak perlu mengubah `index.html`.
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Aliefa Ramadanti** | Anggota | Liputan foto & video pada setiap kegiatan sosial dan acara warga. |
+| **Ilham Syahwandi** | Anggota | Desain grafis pamflet, spanduk, editing video rekap, dan visual branding. |
+| **Syahwaulia Oktaviandri** | Sekretaris (Merangkap) | Manajemen konten berita, siaran pers, dan jadwal posting media sosial. |
 
 ---
 
-## 🎨 Penjelasan Perbaikan UI & UX
+### 3. Divisi Ketertiban & Keamanan
+Menjaga kelancaran, ketertiban, keamanan posko, dan kenyamanan lingkungan selama pelaksanaan acara umum warga.
 
-Beberapa perbaikan yang diterapkan agar website lebih rapi & nyaman:
-
-1. **Pemisahan CSS & JS** — styling dan logika dipisah ke file sendiri agar mudah dirawat.
-2. **Data-driven (HTML netral)** — divisi, anggota, dan quest di-render dari file data, sehingga menambah konten tidak mengubah struktur HTML.
-3. **Animasi Typewriter** — teks sambutan di beranda mengetik secara dinamis (berganti sesuai bahasa).
-4. **Sprite dekoratif** — elemen mengambang (matahari, awan, bintang, daun, hati, dll) memberi kesan *headspace* yang hidup namun tetap rapi (`pointer-events: none` agar tidak mengganggu klik).
-5. **Scroll-spy navigasi** — menu navigasi (atas & bawah) otomatis menyorot section yang sedang dilihat melalui `IntersectionObserver`.
-6. **Indikator scroll** — petunjuk "GULIR KE BAWAH" bergaya pantulan di beranda.
-7. **Meta quest yang jelas** — tiap quest kini menampilkan **waktu, lokasi, dan PIC** dalam label rapi.
-8. **Modal divisi lebih informatif** — menampilkan deskripsi tugas divisi sebelum daftar anggota.
-9. **Konsistensi desain** — semua kartu menggunakan kelas `.omori-box` dan palet *pastel* seragam.
-10. **Aksesibilitas bahasa** — tombol bahasa (ID/EN/JP) langsung memperbarui teks, quest, dan typewriter.
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Arif (Bono)** | Koordinator Lapangan | Koordinasi pengamanan lokasi kegiatan, pengawasan ketertiban umum. |
+| **Adit** | Anggota | Pengaturan arus parkir kendaraan, pos logistik, dan patroli lingkungan acara. |
 
 ---
 
-## 🚀 Cara Menjalankan
+### 4. Divisi Humas & Aset Organisasi
+Menjadi jembatan komunikasi antara pemuda, pengurus RT/RW, tokoh masyarakat, serta bertanggung jawab atas pemeliharaan inventaris organisasi.
 
-Cukup buka `index.html` di browser (atau deploy ke Vercel/Netlify). Tidak ada build step karena semua file statis.
-
-> 💡 Untuk menguji secara lokal dengan baik (karena memuat YouTube & font eksternal), gunakan *live server* atau host statis sederhana.
-=======
-# Profil Resmi Karang Taruna Unit 28 — Kampung Bojong Lio
-
-Website profil resmi **Karang Taruna Unit 28 Kampung Bojong Lio** dengan gaya *retro / pixel* ala video game (istilah *"Current Quests"*, *"Party Member"*, dll). Seluruh konten kini **data-driven**: struktur organisasi, quest/misi, dan terjemahan dipisah ke file data yang bisa diedit secara manual (hardcode) tanpa menyentuh logika tampilan.
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Suci Al Desti Febriyani** | Anggota | Hubungan masyarakat, koordinasi dengan aparatur lingkungan dan sponsorship. |
+| **Safira Rahmadini** | Anggota | Inventarisasi aset fisik (tenda, sound system, alat kebersihan, peralatan acara). |
 
 ---
 
-## 📁 Struktur File
+### 5. Divisi Olahraga & Kerohanian
+Menggerakkan program kebugaran jasmani, turnamen antar-warga, pembinaan bakat olahraga, serta kegiatan pengajian/keagamaan.
 
-```
-index.html              # Markup halaman (tanpa CSS/JS inline)
-css/style.css           # Seluruh styling + animasi + sprite dekoratif
-js/data/
-  config.js             # Pengaturan: WA, video YT, volume, urutan bahasa
-  translations.js       # Teks terjemahan ID / EN / JP
-  divisions.js          # Data divisi & anggota (nama, role, deskripsi)
-  quests.js             # Data quest/misi (judul, desc, waktu, lokasi, PIC)
-js/func/
-  audio-sfx.js          # Efek suara (Web Audio API)
-  youtube.js            # Musik latar (YouTube Iframe API)
-  i18n.js               # Logika ganti bahasa
-  team.js               # Render grid divisi + modal anggota
-  quests.js             # Render daftar quest dari data
-  typewriter.js         # Animasi teks ketik (hero)
-  contact.js            # Kirim pesan ke WhatsApp
-  main.js               # Inisialisasi & event listener (scroll-spy, dll)
-```
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Muhammad Azzam Syuhada** | Anggota | Penyelenggara turnamen sepak bola, bulu tangkis, tenis meja, dan senam pagi. |
+| **Randi Gunawan** | Anggota | Koordinasi pengajian pemuda, peringatan hari besar keagamaan, dan bakti rohani. |
 
 ---
 
-## 👥 Struktur Anggota
+### 6. Divisi Kewirausahaan & Seni Budaya
+Mendorong kemandirian finansial pemuda melalui ekonomi kreatif, bazaar UMKM warga, dan pelestarian kesenian lokal.
 
-```
-━━━━━━━━━━━━━━━
-ANGGOTA UTAMA
-━━━━━━━━━━━━━━━
-* Arif Permana Putrasuryana (RT.1)
-└ Ketua Pelaksana
-
-* Arif (Bono)
-└ Wakil Ketua Pelaksana
-
-* Syahwaulia Oktaviandri (RT.2)
-└ Sekretaris
-
-* Salwa (RT.1)
-└ Bendahara
-
-* Faradillah Eka (RT.1)
-└ Sekretaris 2
-
-* Aqilla (RT.1)
-└ Wakil Bendahara
-
-━━━━━━━━━━━━━━━
-MULTIMEDIA
-━━━━━━━━━━━━━━━
-* Aliefa Ramadanti (RT.1)
-└ Anggota
-
-* Ilham Syahwandi
-└ Anggota
-
-* Syahwaulia Oktaviandri (RT.2)
-└ Sekretaris
-
-━━━━━━━━━━━━━━━
-KEAMANAN
-━━━━━━━━━━━━━━━
-* Arif (Bono) (RT.1)
-└ Anggota
-
-* Adit
-└ Anggota
-
-━━━━━━━━━━━━━━━
-HUMAS & ASET
-━━━━━━━━━━━━━━━
-* Suci Al Desti Febriyani
-└ Anggota
-
-* Safira Rahmadini
-└ Anggota
-
-━━━━━━━━━━━━━━━
-OLAHRAGA & KEROHANIAN
-━━━━━━━━━━━━━━━
-* Muhammad Azzam Syuhada (RT.5)
-└ Anggota
-
-* Randi Gunawan (RT.5)
-└ Anggota
-
-━━━━━━━━━━━━━━━
-KEWIRAUSAHAAN & SENI BUDAYA
-━━━━━━━━━━━━━━━
-* Khalaf Aidil Muzhaffar
-└ Anggota
-
-━━━━━━━━━━━━━━━
-SISTEM INFORMASI DIGITAL
-━━━━━━━━━━━━━━━
-* Arif Permana Putrasuryana (RT.1)
-└ Ketua Pelaksana
-```
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Khalaf Aidil Muzhaffar** | Anggota | Pengembangan usaha produktif pemuda, pentas seni perayaan, dan pelestarian budaya lokal. |
 
 ---
 
-## 🧭 Sistem per Divisi & Tanggung Jawab Anggota
+### 7. Sub-Unit Sistem Informasi Digital
+Unit pengembang teknologi yang membangun dan memelihara sistem informasi digital, website, dan platform pelayanan warga.
 
-### ANGGOTA UTAMA
-Penggerak utama organisasi. Bertugas memimpin, merumuskan rencana kerja, dan memegang tanggung jawab akhir seluruh program.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Arif Permana Putrasuryana (RT.1) | Ketua Pelaksana | Memimpin organisasi, pengambilan keputusan strategis, koordinasi lintas divisi, penanggung jawab utama program. |
-| Syahwaulia Oktaviandri (RT.2) | Sekretaris | Administrasi, notulensi rapat, surat-menyurat & dokumen resmi. |
-| Salwa (RT.1) | Bendahara | Pengelolaan keuangan, kas organisasi, pencatatan pemasukan & pengeluaran. |
-| Faradillah Eka (RT.1) | Sekretaris 2 | Mendukung sekretaris, arkhip digital & komunikasi internal. |
-| Aqilla (RT.1) | Wakil Bendahara | Membantu bendahara & verifikasi laporan keuangan. |
-
-### MULTIMEDIA
-Mendidokumentasikan kegiatan dan mengelola publikasi visual organisasi.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Aliefa Ramadanti (RT.1) | Anggota | Dokumentasi foto & video kegiatan. |
-| Ilham Syahwandi | Anggota | Produksi konten & editing. |
-| Syahwaulia Oktaviandri (RT.2) | Sekretaris | Merangkap sekretaris: pencatatan & dokumentasi kegiatan. |
-
-### KEAMANAN
-Menjaga ketertiban dan keamanan selama kegiatan maupun acara kampung.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Ario (RT.1) | Anggota | Pengamanan lapangan & posko. |
-| Adit | Anggota | Pengaturan arus, parkir & patroli. |
-
-### HUMAS & ASET
-Menjalin relasi eksternal, mengelola aset, dan menangani komunikasi publik.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Suci Al Desti Febriyani | Anggota | Hubungan masyarakat & kerja sama pihak luar. |
-| Safira Rahmadini | Anggota | Inventarisasi & penjagaan aset organisasi. |
-
-### OLAHRAGA & KEROHANIAN
-Menyelenggarakan kegiatan olahraga, kerohanian, dan kebugaran warga.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Muhammad Azzam Syuhada (RT.5) | Anggota | Penyelenggara kegiatan olahraga. |
-| Randi Gunawan (RT.5) | Anggota | Kegiatan kerohanian & kebugaran. |
-
-### KEWIRAUSAHAAN & SENI BUDAYA
-Mengembangkan ekonomi kreatif, kewirausahaan, dan melestarikan seni budaya lokal.
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Khalaf Aidil Muzhaffar | Anggota | Pengembangan usaha & pelestarian seni budaya. |
-
-### SISTEM INFORMASI DIGITAL
-Membangun & merawat sistem informasi digital (website, aplikasi, basis data).
-
-| Nama | Jabatan | Tanggung Jawab |
-|------|---------|----------------|
-| Arif Permana Putrasuryana (RT.1) | Ketua Pelaksana | Pengembangan & pemeliharaan sistem digital organisasi. |
+| Nama | Jabatan | Peran & Tugas Khusus |
+|---|---|---|
+| **Arif Permana Putrasuryana** | Lead Web Architect | Perancangan, pengembangan, pemeliharaan website, basis data, dan automasi digital. |
 
 ---
 
-## 🗺️ Flowchart Struktur Organisasi (Mermaid)
+## ⚡ Fitur-Fitur Utama Website
+
+1. **Desain Klasik & Bersih (Modern Official Corporate Style)**:
+   - Palet warna resmi biru `#0d6efd`, kartu putih berbayang halus, kontras tinggi, dan tata letak elegan yang mudah dibaca oleh semua kalangan usia warga.
+2. **Tri-Language Engine (Indonesian, English, Japanese)**:
+   - Pengunjung dapat berpindah bahasa secara instan melalui dropdown navigasi atas tanpa memuat ulang halaman.
+3. **PWA (Progressive Web App) Ready**:
+   - Dapat diinstal langsung pada smartphone Android/iOS maupun desktop dengan dukungan offline caching dan Web Manifest.
+4. **Program & Agenda Interaktif**:
+   - Penghitung waktu mundur (*live countdown timer*) untuk agenda terdekat, pemisahan tab agenda (Mendatang, Rutin, Arsip), serta fitur download dokumen berita acara kegiatan.
+5. **Katalog Inovasi Software Pemuda**:
+   - Menampilkan perangkat lunak dan utilitas digital karya pemuda Karang Taruna Unit 28.
+6. **Misi Pemuda & Tantangan Gotong Royong**:
+   - Menampilkan daftar proyek yang sedang berjalan, batas waktu, PIC, dan status perkembangan secara transparan.
+7. **Pusat Tanya Jawab (FAQ)**:
+   - Accordion interaktif berisi jawaban lengkap seputar cara bergabung, iuran, pendaftaran relawan, dan partisipasi program.
+
+---
+
+## 🚀 Integrasi Direct Commit via GitHub PAT
+
+Salah satu fitur paling mutakhir dari website ini adalah **Direct Commit System**. Pengurus inti dapat mengedit data langsung dari halaman browser `/admin` dan melakukan push ke repositori GitHub secara otomatis.
 
 ```mermaid
-flowchart TD
-    KTU28["Karang Taruna Unit 28<br/>Bojong Lio"]:::root
+sequenceDiagram
+    autonumber
+    actor Admin as 👤 Pengurus / Admin
+    participant AdminUI as 🖥️ Admin Panel (/admin)
+    participant VuexStore as 📦 Vuex Store
+    participant GitHubAPI as ☁️ GitHub REST API
+    participant GitRepo as 📂 GitHub Repository (Branch main)
 
-    KTU28 --> UTAMA
-    KTU28 --> MULTI
-    KTU28 --> AMAN
-    KTU28 --> HUMAS
-    KTU28 --> OLAHRAGA
-    KTU28 --> WIRA
-    KTU28 --> SISTEM
+    Admin->>AdminUI: Buka /admin & Masukkan GitHub PAT
+    Admin->>AdminUI: Edit Data (Profil, Agenda, Divisi, atau JSON)
+    Admin->>AdminUI: Klik "Commit via PAT"
+    AdminUI->>VuexStore: Dispatch action 'commitToGithub'
+    VuexStore->>GitHubAPI: GET /repos/{owner}/{repo}/contents/{path} (Fetch current SHA)
+    GitHubAPI-->>VuexStore: Return Latest Blob SHA
+    VuexStore->>GitHubAPI: PUT /repos/{owner}/{repo}/contents/{path}<br/>(Headers: Bearer PAT, Content: Base64 JSON, SHA)
+    GitHubAPI->>GitRepo: Buat Commit baru & update file database.json
+    GitHubAPI-->>VuexStore: Status 200/201 Created (Commit Hash URL)
+    VuexStore-->>AdminUI: Tampilkan Pesan Sukses & Tautan Commit GitHub
+    AdminUI-->>Admin: Notifikasi Sukses + Perubahan Terpublikasi
+```
 
-    subgraph UTAMA["ANGGOTA UTAMA"]
-        U1["Arif P. (Ketua Pelaksana)"]
-        U2["Syahwaulia O. (Sekretaris)"]
-        U3["Salwa (Bendahara)"]
-        U4["Faradillah E. (Sekretaris 2)"]
-        U5["Aqilla (Wakil Bendahara)"]
-    end
+### Langkah Menggunakan Fitur Direct Commit:
+1. Buat **Personal Access Token (Classic atau Fine-Grained)** di akun GitHub Anda:
+   - Buka `GitHub Settings` > `Developer Settings` > `Personal access tokens`.
+   - Centang izin cakupan: `repo` (Full control of private/public repositories).
+2. Di website, akses menu **Kelola Data** (ikon kunci di navbar atas atau kunjungi rute `/admin`).
+3. Klik tombol **"Konfigurasi GitHub PAT"** dan masukkan:
+   - **GitHub PAT Token**: `ghp_xxxxxxxxxxxx`
+   - **Repository Owner / Username**: `Username-GitHub-Anda`
+   - **Repository Name**: `Nama-Repo-Anda`
+   - **Target Branch**: `main` (atau `master`)
+   - **Target File Path**: `src/data/database.json`
+4. Lakukan perubahan pada form profil, agenda, divisi, atau editor raw JSON.
+5. Klik **"Commit via PAT"** — perubahan langsung menjadi commit resmi di repository GitHub Anda!
 
-    subgraph MULTI["MULTIMEDIA"]
-        M1["Aliefa R. (Anggota)"]
-        M2["Ilham S. (Anggota)"]
-        M3["Syahwaulia O. (Sekretaris)"]
-    end
+---
 
-    subgraph AMAN["KEAMANAN"]
-        K1["Ario (Anggota)"]
-        K2["Adit (Anggota)"]
-    end
+## 📂 Struktur Direktori Repositori
 
-    subgraph HUMAS["HUMAS & ASET"]
-        H1["Suci A. (Anggota)"]
-        H2["Safira R. (Anggota)"]
-    end
-
-    subgraph OLAHRAGA["OLAHRAGA & KEROHANIAN"]
-        O1["Azzam S. (Anggota)"]
-        O2["Randi G. (Anggota)"]
-    end
-
-    subgraph WIRA["KEWIRAUSAHAAN & SENI BUDAYA"]
-        W1["Khalaf A. (Anggota)"]
-    end
-
-    subgraph SISTEM["SISTEM INFORMASI DIGITAL"]
-        S1["Arif P. (Ketua Pelaksana)"]
-    end
-
-    classDef root fill:#4a3b69,stroke:#fff,color:#fff,font-weight:bold;
+```text
+katarunit28/
+├── dist/                          # Hasil build produksi Vite
+├── public/                        # Aset statis publik
+│   ├── logo-karang-taruna.png     # Logo resmi Karang Taruna
+│   └── favicon.ico                # Favicon browser
+├── src/
+│   ├── components/                # Komponen Vue modular (.vue)
+│   │   ├── Navbar.vue             # Navigasi atas + switch bahasa + admin button
+│   │   ├── HeroSection.vue        # Banner utama, slogan & 4 statistik
+│   │   ├── AboutSection.vue       # Visi, 6 nilai dasar & pengurus inti
+│   │   ├── EventsSection.vue      # Agenda, tab kategori & download dokumen
+│   │   ├── DivisionsSection.vue   # 6 divisi kerja & modal profil anggota
+│   │   ├── PillarsSection.vue     # 3 pilar program & dokumentasi dampak
+│   │   ├── MissionsSection.vue    # Misi pemuda, PIC & status target
+│   │   ├── SoftwareSection.vue    # Inovasi aplikasi buatan pemuda
+│   │   ├── FaqSection.vue         # Accordion FAQ warga
+│   │   └── Footer.vue             # Footer, legalitas & info kontak
+│   ├── views/                     # Halaman view utama
+│   │   ├── HomeView.vue           # Landing page utama publik
+│   │   └── AdminView.vue          # Dashboard admin & GitHub Direct Commit
+│   ├── data/
+│   │   └── database.json          # Basis data terstruktur (JSON)
+│   ├── router/
+│   │   └── index.js               # Konfigurasi Vue Router 4
+│   ├── store/
+│   │   └── index.js               # Vuex 4 Store terpusat
+│   ├── App.vue                    # Root App Component
+│   └── main.js                    # Entry point aplikasi & inisialisasi PWA
+├── .env.example                   # Contoh deklarasi environment variable
+├── babel.config.json              # Konfigurasi Babel preset-env
+├── index.html                     # Entry point HTML & meta tags SEO
+├── metadata.json                  # Metadata aplikasi AI Studio
+├── package.json                   # Daftar dependensi & script project
+├── server.js                      # Server backend Express & API endpoint
+├── vite.config.js                 # Konfigurasi Vite, Vue, Babel & PWA
+└── README.md                      # Dokumentasi komprehensif repositori
 ```
 
 ---
 
-## 📊 Ringkasan Divisi (Tabel)
+## 🛠️ Panduan Instalasi & Menjalankan Aplikasi
 
-| Divisi | Ikon | Jumlah Anggota | Fokus Utama |
-|--------|------|:--------------:|-------------|
-| Anggota Utama | 👑 | 5 | Kepemimpinan & koordinasi |
-| Multimedia | 📷 | 3 | Dokumentasi & konten visual |
-| Keamanan | 🛡️ | 2 | Ketertiban & keamanan acara |
-| Humas & Aset | 📣 | 2 | Relasi publik & aset |
-| Olahraga & Kerohanian | 🏃 | 2 | Kebugaran & kegiatan rohani |
-| Kewirausahaan & Seni Budaya | 🏪 | 1 | Usaha & pelestarian budaya |
-| Sistem Informasi Digital | 💻 | 1 | Website & aplikasi organisasi |
+### Prasyarat:
+- **Node.js** versi 18.0.0 atau lebih baru.
+- **npm** atau **yarn** / **pnpm**.
 
----
+### Langkah Menjalankan di Lokal:
 
-## ➕ Cara Menambah ANGGOTA BARU
+1. **Clone Repositori:**
+   ```bash
+   git clone https://github.com/Username-Anda/katarunit28.git
+   cd katarunit28
+   ```
 
-Buka `js/data/divisions.js`, cari divisi tujuan, lalu tambahkan object baru ke dalam array `members`:
+2. **Instal Dependensi:**
+   ```bash
+   npm install
+   ```
 
-```js
-members: [
-    // ...anggota yang sudah ada...
-    { name: "Nama Baru (RT.x)", role: { id: "Jabatan ID", en: "Role EN", jp: "役職 JP" } }
-]
-```
+3. **Menjalankan Server Pengembangan (Development):**
+   ```bash
+   npm run dev
+   ```
+   Aplikasi akan berjalan di `http://localhost:3000`.
 
-- `name`  : nama lengkap + RT (boleh "(Empty)" jika kosong).
-- `role`  : jabatan dalam 3 bahasa.
+4. **Kompilasi untuk Produksi (Production Build):**
+   ```bash
+   npm run build
+   ```
+   Aset statis hasil kompilasi akan tersimpan di direktori `/dist`.
 
-Jumlah anggota di kartu divisi **dihitung otomatis** — tidak perlu diubah manual.
-
-Untuk divisi baru, salin satu blok `namaDivisi: { icon, title, desc, members: [...] }` dan isi `icon` (class Font Awesome), `title` & `desc` (3 bahasa), lalu `members`.
-
----
-
-## ➕ Cara Menambah QUEST / MISI BARU
-
-Buka `js/data/quests.js`. Setiap quest adalah satu object di dalam array `questData`. Tambahkan object baru:
-
-```js
-{
-    id: "nama-unik-quest",                       // tanpa spasi, unik
-    icon: "fas fa-flag",                         // class Font Awesome
-    title: {
-        id: "PERSIAPAN TUJUH BELASAN",
-        en: "INDEPENDENCE DAY PREP",
-        jp: "独立記念日の準備"
-    },
-    desc: {
-        id: "Menyiapkan berbagai perlombaan...",
-        en: "Preparing various competitions...",
-        jp: "独立記念日を祝うための..."
-    },
-    datetime: "2026-08-17 08:00",               // bebas, mis. "Setiap Minggu"
-    location: "Lapangan Bojong Lio",            // tempat pelaksanaan
-    pic: "Arif Permana Putrasuryana"            // Penanggung Jawab (PIC)
-}
-```
-
-**Penjelasan field:**
-| Field | Fungsi |
-|-------|--------|
-| `id` | Identifier unik (keperluan teknis). |
-| `icon` | Ikon Font Awesome yang ditampilkan di kartu. |
-| `title` / `desc` | Judul & deskripsi dalam 3 bahasa. |
-| `datetime` | Waktu pelaksanaan (bebas format). |
-| `location` | Lokasi pelaksanaan. |
-| `pic` | Penanggung jawab (Person In Charge). |
-
-Urutan object di dalam array = urutan tampil di website. Tidak perlu mengubah `index.html`.
+5. **Menjalankan Server Produksi:**
+   ```bash
+   npm start
+   ```
 
 ---
 
-## 🎨 Penjelasan Perbaikan UI & UX
+## 📝 Tata Cara Pengelolaan Konten (JSON Database)
 
-Beberapa perbaikan yang diterapkan agar website lebih rapi & nyaman:
+Seluruh teks, terjemahan 3 bahasa, daftar divisi, data anggota, dan agenda disimpan di `src/data/database.json`. Anda dapat mengubahnya melalui 3 cara:
 
-1. **Pemisahan CSS & JS** — styling dan logika dipisah ke file sendiri agar mudah dirawat.
-2. **Data-driven (HTML netral)** — divisi, anggota, dan quest di-render dari file data, sehingga menambah konten tidak mengubah struktur HTML.
-3. **Animasi Typewriter** — teks sambutan di beranda mengetik secara dinamis (berganti sesuai bahasa).
-4. **Sprite dekoratif** — elemen mengambang (matahari, awan, bintang, daun, hati, dll) memberi kesan *headspace* yang hidup namun tetap rapi (`pointer-events: none` agar tidak mengganggu klik).
-5. **Scroll-spy navigasi** — menu navigasi (atas & bawah) otomatis menyorot section yang sedang dilihat melalui `IntersectionObserver`.
-6. **Indikator scroll** — petunjuk "GULIR KE BAWAH" bergaya pantulan di beranda.
-7. **Meta quest yang jelas** — tiap quest kini menampilkan **waktu, lokasi, dan PIC** dalam label rapi.
-8. **Modal divisi lebih informatif** — menampilkan deskripsi tugas divisi sebelum daftar anggota.
-9. **Konsistensi desain** — semua kartu menggunakan kelas `.omori-box` dan palet *pastel* seragam.
-10. **Aksesibilitas bahasa** — tombol bahasa (ID/EN/JP) langsung memperbarui teks, quest, dan typewriter.
+1. **Melalui Dashboard Admin Website (`/admin`)**:
+   - Gunakan form intuitif yang tersedia atau edit kode JSON langsung di browser, lalu klik **"Commit via PAT"**.
+2. **Melalui Sinkronisasi Server Lokal**:
+   - Klik **"Simpan ke Server Lokal"** di halaman `/admin` untuk menulis langsung ke file server `database.json`.
+3. **Mengedit Manual File `src/data/database.json`**:
+   - Buka file di teks editor favorit Anda (VS Code, dll), ubah data yang diinginkan, lalu lakukan `git commit` dan `git push` biasa.
 
 ---
 
-## 🚀 Cara Menjalankan
+## 📞 Lisensi & Kontak
 
-Cukup buka `index.html` di browser (atau deploy ke Vercel/Netlify). Tidak ada build step karena semua file statis.
+- **Organisasi**: Karang Taruna Unit 28 Kampung Bojong Lio
+- **Alamat Sekretariat**: Jl. Bojong Lio No. 28, RT 01 / RW 28, Kelurahan Sukamaju, Kecamatan Cilodong, Kota Depok, Jawa Barat 16415
+- **Ketua Pelaksana**: Arif Permana Putrasuryana
+- **WhatsApp**: [0858-1704-8266](https://wa.me/6258517048266)
+- **Lisensi**: Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
-> 💡 Untuk menguji secara lokal dengan baik (karena memuat YouTube & font eksternal), gunakan *live server* atau host statis sederhana.
->>>>>>> 5997cdaf528664e78870c237c74fd1fb4eacc703
+---
+*Dikelola dengan semangat gotong royong dan inovasi digital oleh Pemuda Karang Taruna Unit 28 Bojong Lio Sukamaju Depok.*
