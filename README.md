@@ -298,7 +298,7 @@ Unit pengembang teknologi yang membangun dan memelihara sistem informasi digital
 
 | Nama | Jabatan | Peran & Tugas Khusus |
 |---|---|---|
-| **Arif Permana Putrasuryana** | Lead Web Architect | Perancangan, pengembangan, pemeliharaan website, basis data, dan automasi digital. |
+| **Arif Permana Putrasuryana** | Lead System Architect | Perancangan, pengembangan, pemeliharaan website, basis data, dan automasi digital. |
 
 ---
 

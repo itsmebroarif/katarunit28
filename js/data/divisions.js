@@ -34,10 +34,6 @@ const divisionData = {
         },
       },
       {
-        name: "Syahwaulia Oktaviandri (RT.2)",
-        role: { id: "Sekretaris", en: "Secretary", jp: "秘書" },
-      },
-      {
         name: "Salwa (RT.1)",
         role: { id: "Bendahara", en: "Treasurer", jp: "会計" },
       },
@@ -67,10 +63,6 @@ const divisionData = {
       {
         name: "Ilham Syahwandi",
         role: { id: "Anggota", en: "Member", jp: "メンバー" },
-      },
-      {
-        name: "Syahwaulia Oktaviandri (RT.2)",
-        role: { id: "Sekretaris", en: "Secretary", jp: "秘書" },
       },
     ],
   },
@@ -122,14 +114,7 @@ const divisionData = {
       jp: "住民のスポーツ・精神・健康活動を企画し、健やかな村を目指します。",
     },
     members: [
-      {
-        name: "Muhammad Azzam Syuhada (RT.5)",
-        role: { id: "Anggota", en: "Member", jp: "メンバー" },
-      },
-      {
-        name: "Randi Gunawan (RT.5)",
-        role: { id: "Anggota", en: "Member", jp: "メンバー" },
-      },
+      // Untuk Data Olahraga
     ],
   },
   wirausaha: {
