@@ -16,12 +16,6 @@ const coreTeam = [
     photo: "assets/image/img_arif.jpg",
   },
   {
-    name: "Syahwaulia Oktaviandri",
-    rt: "RT.2",
-    role: { id: "Sekretaris", en: "Secretary", jp: "秘書" },
-    photo: "assets/image/img_syahwaulia.jpg",
-  },
-  {
     name: "Salwa",
     rt: "RT.1",
     role: { id: "Bendahara", en: "Treasurer", jp: "会計" },
